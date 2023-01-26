@@ -1,14 +1,16 @@
 .category_card {
   display: flex;
   flex-direction: column;
-  width: 180px;
+  width: 318px;
   img {
-    height: 150px;
+    width: 318px;
+    height: 350px;
     object-fit: cover;
   }
   p {
     text-align: center;
     margin-top: 7px;
-    font-size: 12px;
+    font-size: 18px;
+    font-weight: 500;
   }
 }

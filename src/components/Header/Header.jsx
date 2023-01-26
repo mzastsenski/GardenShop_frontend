@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 export default function Nav() {
   const cart = useSelector((state) => state.cart.cart);
-  // const wishlist = useSelector((state) => state.wishlist.wishlist);
   const cartCount = cart.reduce((prev, { quantity }) => prev + quantity, 0);
 
   return (
@@ -22,8 +21,10 @@ export default function Nav() {
           </Link>
         </div>
         <div className={s.nav_right}>
-          <HashLink smooth to="/#categories">Categories</HashLink>
-          <HashLink smooth to="/">
+          <HashLink smooth to="/#categories">
+            Categories
+          </HashLink>
+          <HashLink smooth to="/#promotion">
             Coupon
           </HashLink>
           <HashLink smooth to="/#sale">
@@ -31,22 +32,18 @@ export default function Nav() {
           </HashLink>
           <HashLink
             scroll={(el) => el.scrollIntoView({ behavior: "smooth" })}
-            // smooth
-            to="/#contacts"
+            to="#contacts"
           >
             Contacts
           </HashLink>
           <Link to="/wishlist">
             <div className={s.icon_container}>
-              <FavIcon size={25} />
-              {/* {wishlist.length > 0 && (
-                <span className={s.count}>{wishlist.length}</span>
-              )} */}
+              <FavIcon size={28} />
             </div>
           </Link>
           <Link to="/cart">
             <div className={s.icon_container}>
-              <BagIcon size={24} />
+              <BagIcon size={27} />
               {cartCount > 0 && <span className={s.count}>{cartCount}</span>}
             </div>
           </Link>

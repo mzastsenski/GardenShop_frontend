@@ -1,9 +1,10 @@
 .product_card {
   position: relative;
+  margin-top: 18px;
   z-index: 0;
   display: flex;
   flex-direction: column;
-  width: 180px;
+  width: 318px;
 
   &:hover .add_button {
     opacity: 1;
@@ -12,19 +13,21 @@
   .add_button {
     opacity: 0;
     position: absolute;
-    top: 136px;
+    top: 225px;
     color: green;
     border: 2px solid green;
     background-color: rgb(206, 246, 206);
     border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
     padding: 12px;
     width: 100%;
     z-index: 5;
   }
 
   img {
-    width: 180px;
-    // height: 180px;
+    width: 318px;
+    height: 267px;
     object-fit: cover;
   }
 

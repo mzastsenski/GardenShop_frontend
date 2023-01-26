@@ -1,0 +1,9 @@
+.promotions {
+  padding: 32px;
+  letter-spacing: 1px;
+}
+
+.promotions_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}

@@ -2,16 +2,12 @@
   display: flex;
   justify-content: space-between;
   padding: 32px 22px;
-
-  h2,
-  h3 {
-    letter-spacing: 2px;
-  }
+  font-size: 25px;
+  letter-spacing: 2px;
 
   .footer_left {
-    width: 400px;
-    h2 {
-      margin: 10px 0;
+    h1 {
+      margin: 0 0 25px;
     }
   }
 
@@ -21,7 +17,7 @@
     a {
       margin-right: 12px;
       p {
-        font-size: 10px;
+        font-size: 13px;
       }
     }
   }

@@ -6,7 +6,28 @@
   font-family: "Inter", sans-serif;
 }
 
+body {
+  background-color: rgb(241, 239, 239);
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
 a {
   text-decoration: none;
   color: black;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
 }

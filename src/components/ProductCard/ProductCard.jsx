@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import {  useDispatch } from "react-redux";
 import { addToCart } from "../../store/slices/cartSlice";
 
-export default function CategoryCard({
+export default function ProductCard({
   id,
   title,
   image,

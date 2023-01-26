@@ -5,12 +5,12 @@ import s from "./Layout.module.scss";
 
 export default function Layout() {
   return (
-    <>
+    <div className={s.wrapper}>
       <Nav />
       <main className={s.outlet}>
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

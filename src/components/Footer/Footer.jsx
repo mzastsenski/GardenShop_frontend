@@ -7,21 +7,21 @@ export default function Footer() {
   return (
     <div id="contacts" className={s.footer}>
       <div className={s.footer_left}>
-        <h3> Contacts</h3>
-        <h2>+49 69 2485798</h2>
+        <h1>Contacts</h1>
+        <h1>+49 69 2485798</h1>
         <div className={s.icons}>
           <a href="https://instagram.com">
-            <InstagramIcon size={30} />
+            <InstagramIcon size={35} />
             <p>Instagramm</p>
           </a>
           <a href="https://whatsapp.com">
-            <WhatsAppIcon size={30} />
+            <WhatsAppIcon size={35} />
             <p>WhatsApp</p>
           </a>
         </div>
       </div>
       <div className={s.footer_right}>
-        <h3>Adresse</h3>
+        <h1>Adresse</h1>
         <div>
           <p>Schillerstrasse 23</p>
           <p>60342 Frankfurt am Main</p>

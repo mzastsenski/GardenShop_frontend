@@ -1,0 +1,40 @@
+$backgorund-color: rgb(147, 234, 234);
+
+.sale {
+  position: relative;
+  padding: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $backgorund-color;
+  height: 600px;
+  color: white;
+  h1 {
+    font-size: 80px;
+    letter-spacing: 2px;
+    padding-bottom: 12px;
+  }
+  button {
+    margin: 16px 16px 16px 0;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 12.5px;
+    color: black;
+    width: 235px;
+    height: 82px;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+  button:nth-child(2) {
+    background-color: $backgorund-color;
+    color: white;
+  }
+  img {
+    position: absolute;
+    right: 0;
+    height: 100%;
+  }
+}

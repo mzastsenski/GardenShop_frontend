@@ -1,0 +1,26 @@
+.categories {
+  padding: 31px;
+  .title {
+    position: relative;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    h1 {
+      margin-right: 10px;
+    }
+  }
+  button {
+    position: absolute;
+    top: 11px;
+    margin-left: 12px;
+    background-color: white;
+    border: 1px solid #8b8b8b;
+    font-size: 14px;
+    color: #8b8b8b;
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+  }
+}

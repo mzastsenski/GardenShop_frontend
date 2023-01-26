@@ -11,10 +11,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "./requests/categories";
 import { getProducts } from "./requests/products";
 import { setCart } from "./store/slices/cartSlice";
+import { setWishlist } from "./store/slices/wishlistSlice";
 
 export default function App() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
+  const wishlist = useSelector((state) => state.wishlist.wishlist);
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getProducts());
@@ -23,11 +25,15 @@ export default function App() {
   useEffect(() => {
     const cartLocal = JSON.parse(localStorage.getItem("cart"));
     if (cartLocal && cartLocal.length) dispatch(setCart(cartLocal));
+    const wishlistLocal = JSON.parse(localStorage.getItem("wishlist"));
+    if (wishlistLocal && wishlistLocal.length)
+      dispatch(setWishlist(wishlistLocal));
   }, [dispatch]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  }, [cart, wishlist]);
 
   return (
     <Routes>

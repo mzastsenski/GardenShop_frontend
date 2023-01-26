@@ -4,7 +4,7 @@ import WishlistCard from "../../components/WishlistCard/WishlistCard";
 
 export default function WishListPage() {
   const wishlist = useSelector((state) => state.wishlist.wishlist);
-  console.log(wishlist);
+  // console.log(wishlist);
   return (
     <div>
       <h2>WishList</h2>

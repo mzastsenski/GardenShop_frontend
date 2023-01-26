@@ -2,33 +2,39 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
+  padding: 12px 32px;
 
   .nav_left {
-    width: 150px;
+    width: 50%;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
 
     img {
-      width: 50px;
+      width: 72px;
     }
 
     button {
+      margin-left: 50px;
       background-color: #279b29;
       border: none;
       color: white;
-      width: 80px;
-      height: 32px;
+      width: 129px;
+      height: 49px;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 1px;
       cursor: pointer;
     }
   }
 
   .nav_right {
-    width: 400px;
+    width: 50%;
     display: flex;
-    justify-content: space-around;
+    justify-content: right;
     align-items: center;
+    gap: 30px;
+    font-size: 16px;
   }
   .icon_container {
     position: relative;
