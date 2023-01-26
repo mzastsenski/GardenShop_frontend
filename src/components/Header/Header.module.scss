@@ -1,0 +1,46 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+
+  .nav_left {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: 50px;
+    }
+
+    button {
+      background-color: #279b29;
+      border: none;
+      color: white;
+      width: 80px;
+      height: 32px;
+      cursor: pointer;
+    }
+  }
+
+  .nav_right {
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .icon_container {
+    position: relative;
+  }
+  .count {
+    position: absolute;
+    right: -5.5px;
+    top: -3px;
+    background-color: red;
+    border-radius: 50%;
+    padding: 2px 5px;
+    color: white;
+    font-size: 8px;
+  }
+}

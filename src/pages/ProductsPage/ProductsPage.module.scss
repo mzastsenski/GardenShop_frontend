@@ -1,0 +1,10 @@
+.products_page {
+  padding: 18px;
+}
+
+.products_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}

@@ -1,0 +1,14 @@
+.category_card {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  img {
+    height: 150px;
+    object-fit: cover;
+  }
+  p {
+    text-align: center;
+    margin-top: 7px;
+    font-size: 12px;
+  }
+}
