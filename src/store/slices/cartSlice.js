@@ -10,18 +10,12 @@ export const cartSlice = createSlice({
       state.cart = action.payload;
     },
     addToCart: (state, action) => {
-      const target_product = state.cart.find((e) => e.id === action.payload.id);
+      const target_product = state.cart.find((e) => e.id === action.payload);
       if (target_product) {
         target_product.quantity++;
         state.cart = [...state.cart];
       } else {
-        state.cart = [
-          ...state.cart,
-          {
-            ...action.payload,
-            quantity: 1,
-          },
-        ];
+        state.cart = [...state.cart, { id: action.payload, quantity: 1 }];
       }
     },
     clearCart: (state) => {

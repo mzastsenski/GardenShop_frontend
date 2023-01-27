@@ -1,5 +1,6 @@
-import s from "./WishlistCard.module.scss";
+import s from "./WishlistItem.module.scss";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { removeFromWishlist } from "../../store/slices/wishlistSlice";
 
 export default function WishlistCard({
@@ -17,7 +18,9 @@ export default function WishlistCard({
       <button className={s.delete_button} onClick={remove}>
         x
       </button>
-      <img src={image} alt="img" />
+      <Link to={`/product/${id}`}>
+        <img src={image} alt="img" />
+      </Link>
       <div>
         <p>{title}</p>
         <div>

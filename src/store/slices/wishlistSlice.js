@@ -10,18 +10,13 @@ export const wishlistSlice = createSlice({
       state.wishlist = action.payload;
     },
     addToWishlist: (state, action) => {
-      const target_product = state.wishlist.find((e) => e.id === action.payload.id);
+      const id = action.payload;
+      const target_product = state.wishlist.find((e) => e.id === id);
       if (target_product) {
         target_product.quantity++;
         state.wishlist = [...state.wishlist];
       } else {
-        state.wishlist = [
-          ...state.wishlist,
-          {
-            ...action.payload,
-            quantity: 1,
-          },
-        ];
+        state.wishlist = [...state.wishlist, { id, quantity: 1 }];
       }
     },
     removeFromWishlist: (state, action) => {

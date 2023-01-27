@@ -1,12 +1,13 @@
-import s from "./CartCard.module.scss";
+import s from "./CartItem.module.scss";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   incrementQuantity,
   decrementQuantity,
   deleteProduct,
 } from "../../store/slices/cartSlice";
 import { addToWishlist } from "../../store/slices/wishlistSlice";
-export default function CartCard({
+export default function CartItem({
   id,
   quantity,
   discont_price,
@@ -18,23 +19,16 @@ export default function CartCard({
   const remove = () => dispatch(deleteProduct(id));
   const plus = () => dispatch(incrementQuantity(id));
   const minus = () => dispatch(decrementQuantity(id));
-  const addToList = () =>
-    dispatch(
-      addToWishlist({
-        id,
-        title,
-        image,
-        price,
-        discont_price,
-      })
-    );
+  const addToList = () => dispatch(addToWishlist(id));
 
   return (
     <div className={s.cart_card}>
       <button className={s.delete_button} onClick={remove}>
         x
       </button>
-      <img src={image} alt="img" />
+      <Link to={`/product/${id}`}>
+        <img src={image} alt="img" />
+      </Link>
       <div>
         <p>{title}</p>
         <div className={s.buttons}>
@@ -44,6 +38,7 @@ export default function CartCard({
         </div>
         <div>
           <span>{price}</span>
+          <p>id: {id}</p>
           <span>{discont_price}</span>
         </div>
         <button onClick={addToList}>Add to Wishlist</button>

@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./ProductCard.module.scss";
 import { Link } from "react-router-dom";
-import {  useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/slices/cartSlice";
 
 export default function ProductCard({
@@ -15,15 +15,7 @@ export default function ProductCard({
   const Discount = (100 - (discont_price / price) * 100).toFixed(0);
 
   const add = () => {
-    dispatch(
-      addToCart({
-        id,
-        title,
-        image,
-        price,
-        discont_price,
-      })
-    );
+    dispatch(addToCart(id));
   };
 
   return (
