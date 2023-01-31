@@ -8,7 +8,7 @@ export default function Categories() {
   return (
     <section className={s.promotions}>
       <h1>Promotions</h1>
-      {products.length && (
+      {products.length > 0 && (
         <div className={s.promotions_container}>
           <ProductCard {...products[num]} />
           <ProductCard {...products[num + 2]} />

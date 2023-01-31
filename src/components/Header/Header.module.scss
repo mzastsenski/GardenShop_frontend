@@ -1,3 +1,5 @@
+$color: #279b29;
+
 .navigation {
   display: flex;
   justify-content: space-between;
@@ -16,7 +18,7 @@
 
     button {
       margin-left: 50px;
-      background-color: #279b29;
+      background-color: $color;
       border: none;
       color: white;
       width: 129px;
@@ -34,7 +36,7 @@
     justify-content: right;
     align-items: center;
     gap: 30px;
-    font-size: 16px;
+    font-size: 17.5px;
   }
   .icon_container {
     position: relative;
@@ -48,5 +50,11 @@
     padding: 2px 5px;
     color: white;
     font-size: 8px;
+  }
+
+  .login_icons {
+    display: flex;
+    align-items: center;
+    letter-spacing: 1.2px;
   }
 }

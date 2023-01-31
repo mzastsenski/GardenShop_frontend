@@ -3,7 +3,10 @@ import s from "./PromotionFirstOrder.module.scss";
 export default function Categories() {
   const submit = (e) => {
     e.preventDefault();
-    console.log(e.target.phone.value);
+    const val = e.target.phone.value;
+    const regex = /^([+](\d{1,3})\s?)?((\(\d{3,5}\)|\d{3,5})(\s)?)\d{3,8}$/;
+    const result = regex.test(val);
+    result ? alert(val) : alert("Enter right phone number");
   };
   return (
     <section id="promotion" className={s.promotion_first_order}>
@@ -12,11 +15,7 @@ export default function Categories() {
         <h1>Discount 5%</h1>
         <h2>for first order</h2>
         <form onSubmit={submit}>
-          <input
-            type="text"
-            name="phone"
-            defaultValue={"+49"}
-          />
+          <input type="text" name="phone" defaultValue={"+49"} />
           <button>Take Discount</button>
         </form>
       </div>

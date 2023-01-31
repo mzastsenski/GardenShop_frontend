@@ -7,7 +7,7 @@ import { getProductInfo } from "../../requests/products";
 
 export default function CartPage() {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart.cart);
+  const { cart } = useSelector((state) => state.cart);
   const [cartToRender, setCartToRender] = useState([]);
 
   useEffect(() => {
@@ -30,8 +30,8 @@ export default function CartPage() {
       <h2>Cart</h2>
       <div className={s.cart_container}>
         {cart.length > 0 &&
-          cartToRender.map((e) => <CartItem key={e.id} {...e} />)}
-        {!cart.length && <h3>No Product in the cart</h3>}
+          cartToRender.map((e, i) => <CartItem key={i} {...e} />)}
+        {!cart.length && <h3>No products in the cart</h3>}
       </div>
       {cart.length > 0 && <button onClick={clear}>Clear Cart</button>}
     </div>

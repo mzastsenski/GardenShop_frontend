@@ -6,7 +6,6 @@ import { getProductInfo } from "../../requests/products";
 
 export default function WishListPage() {
   const wishlist = useSelector((state) => state.wishlist.wishlist);
-  console.log(wishlist);
 
   const [toRender, setWishlistToRender] = useState([]);
 
@@ -16,9 +15,9 @@ export default function WishListPage() {
 
   const setProductsToRender = async () => {
     const result = [];
-    for (const { id, quantity } of wishlist) {
+    for (const  id  of wishlist) {
       const productData = await getProductInfo(id);
-      result.push({ quantity, ...productData });
+      result.push(productData);
     }
     setWishlistToRender(result);
   };
@@ -30,7 +29,7 @@ export default function WishListPage() {
         {toRender.map((e) => (
           <WishlistCard key={e.id} {...e} />
         ))}
-        {!wishlist.length && <h3>No Product in the Wishlist</h3>}
+        {!wishlist.length && <h3>No products in the wishlist</h3>}
       </div>
     </div>
   );
