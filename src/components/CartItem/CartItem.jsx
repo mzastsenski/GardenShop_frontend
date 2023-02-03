@@ -23,15 +23,12 @@ export default function CartItem({
 
   return (
     <div className={s.cart_card}>
-      <button className={s.delete_button} onClick={remove}>
-        x
-      </button>
       <Link to={`/product/${id}`}>
         <img src={image} alt="img" />
       </Link>
       <div>
         <p>{title}</p>
-        <div className={s.buttons}>
+        <div className={s.quantity_buttons}>
           <button onClick={minus}>-</button>
           <span>{quantity}</span>
           <button onClick={plus}>+</button>
@@ -43,6 +40,9 @@ export default function CartItem({
         </div>
         <button onClick={addToList}>Add to Wishlist</button>
       </div>
+      <button className={s.delete_button} onClick={remove}>
+        x
+      </button>
     </div>
   );
 }

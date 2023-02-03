@@ -79,12 +79,20 @@ export default function LoginPage() {
         </div>
       </div>
       <div className={s.login_buttons}>
-        <button type="button" onClick={logout}>
-          Logout
-        </button>
+        <button onClick={logout}>Logout</button>
         <NavLink to="/">
-          <button type="button">Cancel</button>
+          <button>Cancel</button>
         </NavLink>
+      </div>
+      <div className={s.login_buttons}>
+        <NavLink to="/orders">
+          <button>Orders</button>
+        </NavLink>
+        {user === "Admin" && (
+          <NavLink to="/editproducts">
+            <button>Products</button>
+          </NavLink>
+        )}
       </div>
     </div>
   );

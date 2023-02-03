@@ -1,6 +1,22 @@
 .cart_card {
+  font-size: 19px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
   img {
-    width: 180px;
+    width: 132px;
     object-fit: contain;
+  }
+  .title {
+    max-width: 290px;
+    text-align: center;
+  }
+  .quantity_buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .quantity_buttons button {
+    width: 28px;
   }
 }

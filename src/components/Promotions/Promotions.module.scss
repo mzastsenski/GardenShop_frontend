@@ -7,3 +7,10 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+
+@media (max-width: 480px) {
+  .promotions_container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}

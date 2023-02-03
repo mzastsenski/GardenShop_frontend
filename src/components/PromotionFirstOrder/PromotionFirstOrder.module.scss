@@ -55,3 +55,37 @@ $border-radius: 25px;
     }
   }
 }
+
+@media (max-width: 480px) {
+  .promotion_first_order {
+    height: 296px;
+    padding: 20px 40px;
+    img {
+      width: 122px;
+      height: 222px;
+    }
+    div {
+      h1 {
+        font-size: 30px;
+        letter-spacing: 1px;
+      }
+      h2 {
+        font-size: 24px;
+      }
+      input {
+        width: 180px;
+        height: 42px;
+        margin: 28px 0 22px;
+        padding-left: 24px;
+        font-size: 16px;
+      }
+      button {
+        width: 180px;
+        height: 42px;
+        color: white;
+        font-size: 16px;
+        letter-spacing: 1.4px;
+      }
+    }
+  }
+}

@@ -15,7 +15,7 @@ export default function WishListPage() {
 
   const setProductsToRender = async () => {
     const result = [];
-    for (const  id  of wishlist) {
+    for (const id of wishlist) {
       const productData = await getProductInfo(id);
       result.push(productData);
     }
@@ -23,12 +23,12 @@ export default function WishListPage() {
   };
 
   return (
-    <div>
+    <div className={s.wishlist_page}>
       <h2>WishList</h2>
       <div className={s.cart_container}>
-        {toRender.map((e) => (
-          <WishlistCard key={e.id} {...e} />
-        ))}
+        {toRender.map((e) => {
+          return <WishlistCard key={e.id} {...e} />;
+        })}
         {!wishlist.length && <h3>No products in the wishlist</h3>}
       </div>
     </div>

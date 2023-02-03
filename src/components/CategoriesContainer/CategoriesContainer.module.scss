@@ -1,6 +1,13 @@
 .categories_container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  padding: 12px 0;
+  padding: 22px 0 12px;
   gap: 20px;
+}
+
+
+@media (max-width: 480px) {
+  .categories_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

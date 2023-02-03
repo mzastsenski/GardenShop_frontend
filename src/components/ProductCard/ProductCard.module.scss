@@ -50,3 +50,14 @@
     }
   }
 }
+
+@media (max-width: 480px) {
+  .product_card {
+    width: 160px;
+
+    img {
+      width: 140px;
+      height: 120px;
+    }
+  }
+}

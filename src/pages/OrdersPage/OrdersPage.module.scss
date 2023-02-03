@@ -1,0 +1,29 @@
+$base-color: #28a22a;
+
+.orders_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.orders_container div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 19px;
+  padding: 16px;
+  border-bottom: 1px solid black;
+  p {
+    width: 200px;
+  }
+  button {
+    font-size: 16px;
+    border: none;
+    color: white;
+    background: $base-color;
+    border-radius: 20px;
+    padding: 6px 15px;
+  }
+}

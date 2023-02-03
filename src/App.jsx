@@ -9,6 +9,11 @@ import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import ProductDescrPage from "./pages/ProductDescrPage/ProductDescrPage";
 import LoginPage from "./pages/AuthPages/LoginPage";
 import SignupPage from "./pages/AuthPages/SignupPage";
+import OrdersPage from "./pages/OrdersPage/OrdersPage";
+import OrderPage from "./pages/OrderPage/OrderPage";
+import EditProductsPage from "./pages/EditProductsPages/EditProductsPage";
+import EditProductPage from "./pages/EditProductsPages/EditProductPage";
+import NewProductPage from "./pages/EditProductsPages/NewProductPage";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "./requests/categories";
 import { getProducts } from "./requests/products";
@@ -69,6 +74,11 @@ export default function App() {
         <Route path="/product/:id" element={<ProductDescrPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/order" element={<OrderPage />} />
+        <Route path="/editproducts" element={<EditProductsPage />} />
+        <Route path="/editproduct/:id" element={<EditProductPage />} />
+        <Route path="/newproduct" element={<NewProductPage />} />
       </Route>
     </Routes>
   );

@@ -1,9 +1,8 @@
-// .outlet {
-//   min-width: 75vw;
-// }
-
 .wrapper {
   width: 1440px;
   background: white;
   box-shadow: 1px 1px 11px 1px rgba(190, 189, 189, 0.93);
+  main {
+    min-height: 700px;
+  }
 }

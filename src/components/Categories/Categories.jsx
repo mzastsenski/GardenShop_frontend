@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CategoriesContainer from "../CategoriesContainer/CategoriesContainer";
 
 export default function Categories() {
+
   return (
     <section id="categories" className={s.categories}>
       <div className={s.title}>

@@ -23,18 +23,19 @@ export default function Nav() {
           </Link>
         </div>
         <div className={s.nav_right}>
-          <HashLink smooth to="/#categories">
+          <HashLink smooth to="/#categories" className={s.hashlink}>
             Categories
           </HashLink>
-          <HashLink smooth to="/#promotion">
+          <HashLink smooth to="/#promotion" className={s.hashlink}>
             Coupon
           </HashLink>
-          <HashLink smooth to="/#sale">
+          <HashLink smooth to="/#sale" className={s.hashlink}>
             Sale
           </HashLink>
           <HashLink
             scroll={(el) => el.scrollIntoView({ behavior: "smooth" })}
             to="#contacts"
+            className={s.hashlink}
           >
             Contacts
           </HashLink>

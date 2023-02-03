@@ -1,9 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const postLogout = () => fetch("api/logout", { method: "POST" });
+export const postLogout = () => fetch("/api/logout", { method: "POST" });
 
 export const login_req = createAsyncThunk("data/login_req", (data) => {
-  return fetch("api/login", {
+  return fetch("/api/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -23,7 +23,7 @@ export const signUp_req = createAsyncThunk("data/signUp_req", (data) => {
 });
 
 export const checkUser = createAsyncThunk("data/checkUser", (user) =>
-  fetch("api/checkUser", {
+  fetch("/api/checkUser", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",

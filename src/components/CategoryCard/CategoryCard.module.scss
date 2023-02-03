@@ -14,3 +14,15 @@
     font-weight: 500;
   }
 }
+
+@media (max-width: 480px) {
+  .category_card {
+    width: 118px;
+
+    img {
+      width: 118px;
+      height: 110px;
+      object-fit: cover;
+    }
+  }
+}

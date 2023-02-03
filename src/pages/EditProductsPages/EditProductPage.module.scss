@@ -1,0 +1,49 @@
+$base-color: #28a22a;
+
+.edit_product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18px;
+  font-size: 19px;
+  h2 {
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  label {
+    display: flex;
+    align-items: center;
+    margin: 12px;
+    p {
+      width: 160px;
+      letter-spacing: 1.5px;
+    }
+    input,
+    textarea {
+      padding: 7px 12px;
+      width: 250px;
+      font-size: 18px;
+      border-radius: 20px;
+      height: 36px;
+    }
+    textarea {
+      height: 62px;
+    }
+  }
+  label:nth-child(6) textarea {
+    height: 150px;
+  }
+  button {
+    align-self: center;
+    justify-self: center;
+    width: 98px;
+    font-size: 18px;
+    border: none;
+    color: white;
+    background: $base-color;
+    border-radius: 20px;
+    padding: 9px 0;
+    margin: 9px;
+    align-self: right;
+  }
+}

@@ -15,6 +15,9 @@ export const dataSlice = createSlice({
     setUser: (state, action) => {
       state.user = action.payload;
     },
+    removeProduct: (state, action) => {
+      state.products = state.products.filter((e) => e.id !== action.payload);
+    },
   },
   extraReducers: {
     [getCategories.fulfilled]: (state, action) => {
@@ -49,6 +52,6 @@ export const dataSlice = createSlice({
   },
 });
 
-export const { setUser } = dataSlice.actions;
+export const { setUser, removeProduct } = dataSlice.actions;
 
 export default dataSlice.reducer;

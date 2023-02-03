@@ -7,8 +7,8 @@ export default function Footer() {
   return (
     <div id="contacts" className={s.footer}>
       <div className={s.footer_left}>
-        <h1>Contacts</h1>
-        <h1>+49 69 2485798</h1>
+        <h2>Contacts</h2>
+        <h1>+49 999 999 99</h1>
         <div className={s.icons}>
           <a href="https://instagram.com">
             <InstagramIcon size={35} />
@@ -21,14 +21,14 @@ export default function Footer() {
         </div>
       </div>
       <div className={s.footer_right}>
-        <h1>Adresse</h1>
+        <h2>Adress</h2>
         <div>
-          <p>Schillerstrasse 23</p>
-          <p>60342 Frankfurt am Main</p>
+          <p>Linkstraße 2, 8 OG</p>
+          <p>10785 Berlin</p>
         </div>
         <div>
           <p>Opening hours:</p>
-          <p>24h</p>
+          <p>24 houts a day</p>
         </div>
       </div>
     </div>

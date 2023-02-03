@@ -4,9 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 import CartItem from "../../components/CartItem/CartItem";
 import { clearCart } from "../../store/slices/cartSlice";
 import { getProductInfo } from "../../requests/products";
+import { buyProducts } from "../../requests/cart";
 
 export default function CartPage() {
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.data);
   const { cart } = useSelector((state) => state.cart);
   const [cartToRender, setCartToRender] = useState([]);
 
@@ -24,16 +26,25 @@ export default function CartPage() {
   };
 
   const clear = () => dispatch(clearCart());
+  const buy = () => {
+    dispatch(clearCart());
+    buyProducts({ cart: cartToRender, user });
+  };
 
   return (
-    <div>
-      <h2>Cart</h2>
+    <div className={s.cart_page}>
+      <h2>Shopping cart</h2>
       <div className={s.cart_container}>
         {cart.length > 0 &&
-          cartToRender.map((e, i) => <CartItem key={i} {...e} />)}
+          cartToRender.map((e) => <CartItem key={e.id} {...e} />)}
         {!cart.length && <h3>No products in the cart</h3>}
       </div>
       {cart.length > 0 && <button onClick={clear}>Clear Cart</button>}
+      {cart.length > 0 && (
+        <div>
+          <button onClick={buy}>Buy products</button>
+        </div>
+      )}
     </div>
   );
 }

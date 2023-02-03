@@ -58,3 +58,24 @@ $color: #279b29;
     letter-spacing: 1.2px;
   }
 }
+
+@media (max-width: 480px) {
+  .navigation {
+    .nav_left {
+      button {
+        margin-left: 25px;
+        width: 88px;
+        height: 33px;
+        font-size: 13px;
+      }
+      img {
+        width: 42px;
+      }
+    }
+    .nav_right {
+      .hashlink {
+        display: none;
+      }
+    }
+  }
+}
