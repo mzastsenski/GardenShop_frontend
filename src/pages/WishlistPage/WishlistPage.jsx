@@ -25,10 +25,8 @@ export default function WishListPage() {
   return (
     <div className={s.wishlist_page}>
       <h2>WishList</h2>
-      <div className={s.cart_container}>
-        {toRender.map((e) => {
-          return <WishlistCard key={e.id} {...e} />;
-        })}
+      <div className={s.products_container}>
+        {toRender.map((e) => <WishlistCard key={e.id} {...e} />).reverse()}
         {!wishlist.length && <h3>No products in the wishlist</h3>}
       </div>
     </div>

@@ -6,10 +6,20 @@
   flex-direction: column;
   width: 318px;
 
-  &:hover .add_button {
+  &:hover .add_button,
+  &:hover .wishlist_icon {
     opacity: 1;
     transition: opacity 0.2s;
   }
+  .wishlist_icon {
+    opacity: 0;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    z-index: 5;
+    color: red;
+  }
+
   .add_button {
     opacity: 0;
     position: absolute;

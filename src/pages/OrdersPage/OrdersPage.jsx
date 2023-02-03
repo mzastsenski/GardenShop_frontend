@@ -7,7 +7,7 @@ import { getOrders } from "../../requests/orders";
 export default function OrdersPage() {
   const dispatch = useDispatch();
   const { orders } = useSelector((state) => state.orders);
-  const { user } = useSelector((state) => state.data);
+  const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
     if (user) dispatch(getOrders({ user }));

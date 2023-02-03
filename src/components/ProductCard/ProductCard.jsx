@@ -1,8 +1,17 @@
-import React from "react";
 import s from "./ProductCard.module.scss";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../../store/slices/cartSlice";
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../../store/slices/wishlistSlice";
+import {
+  AiOutlineHeart as WishlistIcon,
+  AiTwotoneHeart as WishlistIcon2,
+} from "react-icons/ai";
+// import { BsHandbag as CartIcon } from "react-icons/bs";
 
 export default function ProductCard({
   id,
@@ -12,10 +21,21 @@ export default function ProductCard({
   discont_price,
 }) {
   const dispatch = useDispatch();
+  const { wishlist } = useSelector((state) => state.wishlist);
   const Discount = (100 - (discont_price / price) * 100).toFixed(0);
+  const [inWishlist, setInWishList] = useState(false);
+
+  useEffect(() => {
+    const finded = wishlist.find((e) => e === id);
+    finded ? setInWishList(true) : setInWishList(false);
+  }, [wishlist, id]);
 
   const add = () => {
     dispatch(addToCart(id));
+  };
+
+  const add_to_wishlist = () => {
+    inWishlist ? dispatch(removeFromWishlist(id)) : dispatch(addToWishlist(id));
   };
 
   return (
@@ -23,6 +43,19 @@ export default function ProductCard({
       <button className={s.add_button} onClick={add}>
         Add to cart
       </button>
+      {!inWishlist ? (
+        <WishlistIcon
+          size={40}
+          onClick={add_to_wishlist}
+          className={s.wishlist_icon}
+        />
+      ) : (
+        <WishlistIcon2
+          size={40}
+          onClick={add_to_wishlist}
+          className={s.wishlist_icon}
+        />
+      )}
       <Link to={`/product/${id}`}>
         <img src={image} alt="" />
         <div to={`/product/${id}`} className={s.price_info}>

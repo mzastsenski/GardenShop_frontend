@@ -16,6 +16,7 @@ export default function OrdersPage() {
       <Link to="/orders">
         <button>back</button>
       </Link>
+
       <div className={s.order_container}>
         <div>
           <p>#</p>
@@ -24,6 +25,7 @@ export default function OrdersPage() {
           <p>Quantity</p>
           <p>Total</p>
         </div>
+
         {order.map((e) => (
           <OrderItem key={e.id} {...e} />
         ))}

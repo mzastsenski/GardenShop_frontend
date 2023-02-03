@@ -17,7 +17,7 @@ import NewProductPage from "./pages/EditProductsPages/NewProductPage";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "./requests/categories";
 import { getProducts } from "./requests/products";
-import { setUser } from "./store/slices/dataSlice";
+import { setUser } from "./store/slices/userSlice";
 import { setCart } from "./store/slices/cartSlice";
 import { setWishlist } from "./store/slices/wishlistSlice";
 import { checkUser } from "./requests/auth";
@@ -26,7 +26,7 @@ import { getWishlist, saveWishlist } from "./requests/wishlist";
 
 export default function App() {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.data);
+  const { user } = useSelector((state) => state.user);
   const { cart } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
 

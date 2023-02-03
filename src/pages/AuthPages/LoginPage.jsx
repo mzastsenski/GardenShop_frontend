@@ -2,13 +2,13 @@ import s from "./Auth.module.scss";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setUser } from "../../store/slices/dataSlice";
+import { setUser } from "../../store/slices/userSlice";
 import { login_req, postLogout } from "../../requests/auth";
 import { setCart } from "../../store/slices/cartSlice";
 import { setWishlist } from "../../store/slices/wishlistSlice";
 
 export default function LoginPage() {
-  const { user } = useSelector((state) => state.data);
+  const { user } = useSelector((state) => state.user);
   const { cart } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
   const dispatch = useDispatch();

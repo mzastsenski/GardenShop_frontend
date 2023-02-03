@@ -8,7 +8,7 @@ import { buyProducts } from "../../requests/cart";
 
 export default function CartPage() {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.data);
+  const { user } = useSelector((state) => state.user);
   const { cart } = useSelector((state) => state.cart);
   const [cartToRender, setCartToRender] = useState([]);
 

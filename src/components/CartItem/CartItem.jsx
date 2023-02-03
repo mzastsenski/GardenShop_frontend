@@ -19,7 +19,7 @@ export default function CartItem({
   const remove = () => dispatch(deleteProduct(id));
   const plus = () => dispatch(incrementQuantity(id));
   const minus = () => dispatch(decrementQuantity(id));
-  const addToList = () => dispatch(addToWishlist(id));
+  const add_to_wishlist = () => dispatch(addToWishlist(id));
 
   return (
     <div className={s.cart_card}>
@@ -38,7 +38,7 @@ export default function CartItem({
           <p>id: {id}</p>
           <span>{discont_price}</span>
         </div>
-        <button onClick={addToList}>Add to Wishlist</button>
+        <button onClick={add_to_wishlist}>Add to Wishlist</button>
       </div>
       <button className={s.delete_button} onClick={remove}>
         x

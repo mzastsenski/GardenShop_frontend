@@ -6,7 +6,8 @@ import Upload from "../../components/Upload/Upload";
 import { editProduct } from "../../requests/edit_products";
 
 export default function EditProductPage() {
-  const { products, user } = useSelector((state) => state.data);
+  const { user } = useSelector((state) => state.user);
+  const { products } = useSelector((state) => state.data);
   const { id } = useParams();
   const [imgName, setImgName] = useState(null);
   const navigate = useNavigate();

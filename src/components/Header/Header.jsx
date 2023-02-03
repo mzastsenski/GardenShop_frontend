@@ -18,7 +18,7 @@ export default function Nav() {
           <Link to="/">
             <img src="/images/logo.png" alt="logo" />
           </Link>
-          <Link to="/categories">
+          <Link to="/categories/all">
             <button>Catalog</button>
           </Link>
         </div>

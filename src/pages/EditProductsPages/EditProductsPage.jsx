@@ -6,7 +6,8 @@ import { useEffect } from "react";
 import { getProducts } from "../../requests/products";
 
 export default function EditProductsPage() {
-  const { products, user } = useSelector((state) => state.data);
+  const { user } = useSelector((state) => state.user);
+  const { products } = useSelector((state) => state.data);
   const dispatch = useDispatch();
 
   useEffect(() => {
