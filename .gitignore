@@ -9,7 +9,8 @@ node_modules
 /coverage
 
 # production
-/build
+build
+PromotionFirstOrder_WithoutUseForm
 
 # misc
 .DS_Store

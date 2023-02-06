@@ -19,7 +19,7 @@ export default function WishlistCard({
   return (
     <div className={s.wishlist_card}>
       <button className={s.delete_button} onClick={remove}>
-        x
+        X
       </button>
       <button className={s.add_button} onClick={add}>
         Add to cart

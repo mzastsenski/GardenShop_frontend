@@ -9,7 +9,7 @@ export default function EditProductItem({ id, title, price, image }) {
   const dispatch = useDispatch();
   const edit = () => navigate(`/editproduct/${id}`);
   const delete_product = () => {
-    if (window.confirm("delete?") === true) {
+    if (window.confirm("remove?") === true) {
       deleteProduct(id);
       dispatch(removeProduct(id));
     }

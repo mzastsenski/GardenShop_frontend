@@ -1,5 +1,8 @@
 .products_page {
   padding: 18px;
+  h2 {
+    margin-bottom: 20px;
+  }
 }
 
 .products_container {
@@ -9,10 +12,22 @@
   margin-top: 18px;
 }
 
-.sorting {
+.functions {
+  display: flex;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  div {
+    display: flex;
+    align-items: center;
+  }
+  span {
+    padding-right: 16px;
+  }
+}
+
+.checkbox input {
+  width: 20px;
+  height: 20px;
 }
 
 .search_form input,

@@ -14,7 +14,7 @@ export default function Order({ id, user, products, date }) {
     navigate("/order");
   };
   const delete_order = () => {
-    if (window.confirm("delete?") === true) {
+    if (window.confirm("remove?") === true) {
       deleteOrder(id);
       dispatch(removeOrder(id));
     }

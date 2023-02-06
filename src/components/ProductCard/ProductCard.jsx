@@ -11,7 +11,6 @@ import {
   AiOutlineHeart as WishlistIcon,
   AiTwotoneHeart as WishlistIcon2,
 } from "react-icons/ai";
-// import { BsHandbag as CartIcon } from "react-icons/bs";
 
 export default function ProductCard({
   id,
@@ -38,6 +37,9 @@ export default function ProductCard({
     inWishlist ? dispatch(removeFromWishlist(id)) : dispatch(addToWishlist(id));
   };
 
+  const className =
+    Discount > 0 ? s.price_info : [s.price_info, s.price_info2].join(" ");
+
   return (
     <div className={s.product_card}>
       <button className={s.add_button} onClick={add}>
@@ -58,10 +60,10 @@ export default function ProductCard({
       )}
       <Link to={`/product/${id}`}>
         <img src={image} alt="" />
-        <div to={`/product/${id}`} className={s.price_info}>
-          <span>{price}€ </span>
+        <div className={className}>
           <span>{discont_price}€ </span>
-          <span>-{Discount}%</span>
+          {Discount > 0 && <span>{price}€ </span>}
+          {Discount > 0 && <span>-{Discount}%</span>}
         </div>
         <p>{title}</p>{" "}
       </Link>

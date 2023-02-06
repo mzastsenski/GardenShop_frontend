@@ -17,6 +17,7 @@ export default function ProductsPage() {
     (state) => state.data
   );
   const [categoryName, setCategoryName] = useState("");
+  const [checked, setChecked] = useState(false);
 
   const testID = !isNaN(+categoryID) ? true : false;
 
@@ -45,33 +46,46 @@ export default function ProductsPage() {
 
   const sort_products = (e) => dispatch(sortProducts(e.target.value));
 
+  const checkbox = (e) => setChecked(e.target.checked);
+
   return (
     <div className={s.products_page}>
       <h2>{categoryName}</h2>
 
-      <div className={s.sorting}>
-        <span>Price: </span>
-        <form className={s.search_form} onSubmit={search}>
-          <input type="text" placeholder="from" name="min" />
-          <input type="text" placeholder="to" name="max" />
-          <button>Search</button>
-        </form>
-      </div>
+      <div className={s.functions}>
+        <div>
+          <span>Sorted :</span>
+          <select className={s.sort_select} onInput={sort_products}>
+            <option value="default">by default</option>
+            <option value="title">title</option>
+            <option value="price">price</option>
+            <option value="descending">price descending</option>
+          </select>
+        </div>
 
-      <div>
-        <span>Sort By:</span>
-        <select className={s.sort_select} onInput={sort_products}>
-          <option value="default">default</option>
-          <option value="title">title</option>
-          <option value="price">price</option>
-          <option value="descending">price descending</option>
-        </select>
+        <div className={s.checkbox} onClick={checkbox}>
+          <label htmlFor="checkbox">Discounted items: &nbsp;</label>
+          <input type="checkbox" id="checkbox" name="checkbox" />
+        </div>
+
+        <div>
+          <span>Price: </span>
+          <form className={s.search_form} onSubmit={search}>
+            <input type="text" placeholder="from" name="min" />
+            <input type="text" placeholder="to" name="max" />
+            <button>Search</button>
+          </form>
+        </div>
       </div>
 
       <div className={s.products_container}>
-        {renderProducts.filter((e) => !e.hide).map((e) => (
-          <ProductCard key={e.id} {...e} />
-        ))}
+        {checked
+          ? renderProducts
+              .filter((e) => e.discont_price !== e.price && !e.hide)
+              .map((e) => <ProductCard key={e.id} {...e} />)
+          : renderProducts
+              .filter((e) => !e.hide)
+              .map((e) => <ProductCard key={e.id} {...e} />)}
       </div>
     </div>
   );

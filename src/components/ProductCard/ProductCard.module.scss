@@ -38,7 +38,7 @@
   img {
     width: 318px;
     height: 267px;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .price_info {
@@ -58,6 +58,9 @@
     span:nth-child(3) {
       color: red;
     }
+  }
+  .price_info2 {
+    justify-content: center;
   }
 }
 
