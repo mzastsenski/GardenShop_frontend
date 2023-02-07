@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <div id="contacts" className={s.footer}>
       <div className={s.footer_left}>
-        <h2>Contacts</h2>
+        <h2>Contact</h2>
         <h1>+49 999 999 99</h1>
         <div className={s.icons}>
           <a href="https://instagram.com">
@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
       </div>
       <div className={s.footer_right}>
-        <h2>Adress</h2>
+        <h2>Address</h2>
         <div>
           <p>Linkstraße 2, 8 OG</p>
           <p>10785 Berlin</p>

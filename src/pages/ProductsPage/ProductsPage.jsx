@@ -54,13 +54,12 @@ export default function ProductsPage() {
 
       <div className={s.functions}>
         <div>
-          <span>Sorted :</span>
-          <select className={s.sort_select} onInput={sort_products}>
-            <option value="default">by default</option>
-            <option value="title">title</option>
-            <option value="price">price</option>
-            <option value="descending">price descending</option>
-          </select>
+          <span>Price: </span>
+          <form className={s.search_form} onSubmit={search}>
+            <input type="text" placeholder="from" name="min" />
+            <input type="text" placeholder="to" name="max" />
+            <button>Search</button>
+          </form>
         </div>
 
         <div className={s.checkbox} onClick={checkbox}>
@@ -69,12 +68,13 @@ export default function ProductsPage() {
         </div>
 
         <div>
-          <span>Price: </span>
-          <form className={s.search_form} onSubmit={search}>
-            <input type="text" placeholder="from" name="min" />
-            <input type="text" placeholder="to" name="max" />
-            <button>Search</button>
-          </form>
+          <span>Sorted :</span>
+          <select className={s.sort_select} onInput={sort_products}>
+            <option value="default">by default</option>
+            <option value="title">title</option>
+            <option value="price">price</option>
+            <option value="descending">price descending</option>
+          </select>
         </div>
       </div>
 

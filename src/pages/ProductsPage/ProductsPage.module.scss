@@ -1,3 +1,5 @@
+$base-color: #28a22a;
+
 .products_page {
   padding: 18px;
   h2 {
@@ -33,9 +35,9 @@
 .search_form input,
 .sort_select {
   border: 1px solid black;
-  border-radius: 7px;
+  border-radius: 6px;
   padding: 10px;
-  width: 100px;
+  width: 112px;
   margin-right: 10px;
 }
 
@@ -54,5 +56,6 @@
 
 .search_form button:hover {
   color: white;
-  background-color: #34495e;
+  background-color: $base-color;
+  border: 1px solid $base-color;
 }

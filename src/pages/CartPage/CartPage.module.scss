@@ -2,6 +2,10 @@
   font-family: "Monserat-Medium";
   src: url("../../assets/fonts/Montserrat-Medium.ttf");
 }
+@font-face {
+  font-family: "Monserat-SemiBold";
+  src: url("../../assets/fonts/Montserrat-SemiBold.ttf");
+}
 
 $base-color: #28a22a;
 .cart_page {
@@ -26,6 +30,7 @@ $base-color: #28a22a;
       }
     }
     h2 {
+      font-family: "Monserat-SemiBold";
       margin-top: 20px;
     }
   }

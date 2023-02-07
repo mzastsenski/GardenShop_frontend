@@ -1,7 +1,7 @@
 import s from "./CartPage.module.scss";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import CartItem from "../../components/CartItem/CartItem";
 import { clearCart } from "../../store/slices/cartSlice";
@@ -11,6 +11,7 @@ import { MdNavigateNext } from "react-icons/md";
 
 export default function CartPage() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { user } = useSelector((state) => state.user);
   const { cart } = useSelector((state) => state.cart);
   const [cartToRender, setCartToRender] = useState([]);
@@ -49,6 +50,7 @@ export default function CartPage() {
     reset();
     dispatch(clearCart());
     buyProducts({ cart: cartToRender, user });
+    navigate("/orders")
   };
 
   const phoneRegister = register("phone", {
@@ -57,7 +59,7 @@ export default function CartPage() {
       message: "*Enter valid phone number",
     },
   });
-  
+
   return (
     <div className={s.cart_page}>
       <div className={s.cart}>
@@ -65,7 +67,7 @@ export default function CartPage() {
         <div className={s.header}>
           <Link to={"/"}>Home / Cart</Link>
           <Link to={"/categories"}>
-            Back to the Store <MdNavigateNext color="#A7A7A7" size={25}/>
+            Back to the Store <MdNavigateNext color="#A7A7A7" size={25} />
           </Link>
         </div>
         <div className={s.cart_container}>

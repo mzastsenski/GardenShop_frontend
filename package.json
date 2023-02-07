@@ -27,7 +27,7 @@
     "eject": "react-scripts eject",
     "server": "cd .. && cd gardenshop_backend && npm run server"
   },
-  "proxy": "http://192.168.5.20:4000",
+  "proxy": "https://gardenshop.mzas.de",
   "eslintConfig": {
     "extends": [
       "react-app",

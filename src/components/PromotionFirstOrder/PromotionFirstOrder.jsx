@@ -11,6 +11,7 @@ export default function Categories() {
 
   const submit = (data) => {
     console.log(data.phone)
+    alert(data.phone)
     reset();
   };
 
@@ -25,8 +26,8 @@ export default function Categories() {
     <section id="promotion" className={s.promotion_first_order}>
       <img src="/images/gnom.png" alt="" />
       <div>
-        <h1>Discount 5%</h1>
-        <h2>for first order</h2>
+        <h1>5% off</h1>
+        <h2>on the first order</h2>
         <form onSubmit={handleSubmit(submit)}>
           <input
             type="text"
