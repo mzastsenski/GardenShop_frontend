@@ -1,22 +1,72 @@
 .cart_card {
-  font-size: 19px;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  padding: 30px 0;
+  font-size: 19px;
+  border-bottom: 2px solid #a7a7a7;
   img {
-    width: 132px;
+    width: 192px;
+    border-radius: 10px;
     object-fit: contain;
+  }
+  .info {
+    height: 192px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .title {
     max-width: 290px;
     text-align: center;
   }
+
   .quantity_buttons {
+    width: 140px;
+    height: 42px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    border: 2px solid black;
+    border-radius: 11px;
+    font-size: 20px;
+    cursor: default;
+    .button {
+      height: 50%;
+      cursor: pointer;
+    }
   }
-  .quantity_buttons button {
-    width: 28px;
+
+  .price {
+    font-family: "Monserat-Medium";
+    font-size: 20px;
+    text-decoration: line-through;
+    color: grey;
+  }
+  .discont_price {
+    font-family: "Monserat-Medium";
+    font-size: 35px;
+    font-weight: 500;
+  }
+
+  .wishlist_icon {
+    opacity: 1;
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    z-index: 5;
+    color: grey;
+    cursor: pointer;
+  }
+  .delete_icon {
+    opacity: 0.4;
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    z-index: 5;
+    cursor: pointer;
   }
 }

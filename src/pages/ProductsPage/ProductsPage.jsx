@@ -79,13 +79,14 @@ export default function ProductsPage() {
       </div>
 
       <div className={s.products_container}>
-        {checked
-          ? renderProducts
-              .filter((e) => e.discont_price !== e.price && !e.hide)
-              .map((e) => <ProductCard key={e.id} {...e} />)
-          : renderProducts
-              .filter((e) => !e.hide)
-              .map((e) => <ProductCard key={e.id} {...e} />)}
+        {renderProducts
+          .filter((e) => {
+            if (checked) return e.discont_price !== e.price && !e.hide;
+            else return !e.hide;
+          })
+          .map((e) => (
+            <ProductCard key={e.id} {...e} />
+          ))}
       </div>
     </div>
   );

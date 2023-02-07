@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Monserat-Medium";
+  src: url("./assets/fonts/Montserrat-Medium.ttf");
+}
+@font-face {
+  font-family: "Monserat";
+  src: url("./assets/fonts/Montserrat-Regular.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -32,6 +41,9 @@ h2 {
   letter-spacing: 1.5px;
 }
 
+p {
+  font-family: "Monserat", sans-serif;
+}
 @media (max-width: 480px) {
   h1 {
     font-size: 28px;

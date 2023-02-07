@@ -1,6 +1,6 @@
 import s from "./Order.module.scss";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setOrder } from "../../store/slices/ordersSlice";
 import { deleteOrder } from "../../requests/orders";
 import { removeOrder } from "../../store/slices/ordersSlice";
@@ -8,6 +8,7 @@ import { removeOrder } from "../../store/slices/ordersSlice";
 export default function Order({ id, user, products, date }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const admin = useSelector((state) => state.user.user);
 
   const show = () => {
     dispatch(setOrder(products));
@@ -27,11 +28,13 @@ export default function Order({ id, user, products, date }) {
       <p>
         <button onClick={show}>Show</button>
       </p>
-      <p>
-        <button onClick={delete_order} className={s.delete_button}>
-          X
-        </button>
-      </p>
+      {admin === "Admin" && (
+        <p>
+          <button onClick={delete_order} className={s.delete_button}>
+            X
+          </button>
+        </p>
+      )}
     </div>
   );
 }

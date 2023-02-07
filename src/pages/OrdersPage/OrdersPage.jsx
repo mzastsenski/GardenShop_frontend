@@ -24,7 +24,7 @@ export default function OrdersPage() {
             <p>User</p>
             <p>Date</p>
             <p>Order</p>
-            <p>Delete</p>
+            {user === "Admin" && <p>Delete</p>}
           </div>
           {orders.map((e) => <Order key={e.id} {...e} />).reverse()}
         </div>
