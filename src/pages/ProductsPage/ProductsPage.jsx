@@ -9,6 +9,7 @@ import {
   searchPrice,
   sortProducts,
 } from "../../store/slices/dataSlice";
+import Checkbox from "../../components/Checkbox/Checkbox";
 
 export default function ProductsPage() {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ export default function ProductsPage() {
     <div className={s.products_page}>
       <h2>{categoryName}</h2>
 
-      <div className={s.functions}>
+      <div className={s.actions}>
         <div>
           <span>Price: </span>
           <form className={s.search_form} onSubmit={search}>
@@ -63,8 +64,7 @@ export default function ProductsPage() {
         </div>
 
         <div className={s.checkbox} onClick={checkbox}>
-          <label htmlFor="checkbox">Discounted items: &nbsp;</label>
-          <input type="checkbox" id="checkbox" name="checkbox" />
+          <Checkbox />
         </div>
 
         <div>

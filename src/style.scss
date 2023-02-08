@@ -41,8 +41,8 @@ h2 {
   letter-spacing: 1.5px;
 }
 
-p {
-  font-family: "Monserat", sans-serif;
+p, label, span {
+  font-family: "Monserat-Regular", sans-serif;
 }
 @media (max-width: 480px) {
   h1 {

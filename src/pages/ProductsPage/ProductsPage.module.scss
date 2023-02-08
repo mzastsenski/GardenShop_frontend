@@ -14,8 +14,7 @@ $base-color: #28a22a;
   margin-top: 18px;
 }
 
-.functions {
-  display: flex;
+.actions {
   display: flex;
   justify-content: space-between;
   div {
@@ -25,11 +24,6 @@ $base-color: #28a22a;
   span {
     padding-right: 16px;
   }
-}
-
-.checkbox input {
-  width: 20px;
-  height: 20px;
 }
 
 .search_form input,
