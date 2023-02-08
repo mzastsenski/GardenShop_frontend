@@ -7,6 +7,7 @@ import { HashLink } from "react-router-hash-link";
 import { useSelector } from "react-redux";
 
 export default function Nav() {
+  const user = useSelector((state) => state.user.user);
   const cart = useSelector((state) => state.cart.cart);
   const cartCount = cart.reduce((prev, { quantity }) => prev + quantity, 0);
   const wishlist = useSelector((state) => state.wishlist.wishlist);
@@ -54,9 +55,9 @@ export default function Nav() {
             </div>
           </Link>
           <Link to="/login">
-            <span className={s.login_icons}>
+            <span className={[s.login_icons, s.icon_container].join(" ")}>
               <UserIcon size={27} />
-              {/* &nbsp;&nbsp;{user && user} */}
+              {user && <span className={s.user_logged}>&nbsp;</span>}
             </span>
           </Link>
         </div>

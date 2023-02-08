@@ -51,6 +51,17 @@ $color: #279b29;
     color: white;
     font-size: 8px;
   }
+  .user_logged {
+    position: absolute;
+    right: 1px;
+    top: -1px;
+    background-color: red;
+    border-radius: 50%;
+    width: 9px;
+    height: 9px;
+    color: white;
+    font-size: 8px;
+  }
 
   .login_icons {
     display: flex;
