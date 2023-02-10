@@ -14,11 +14,12 @@ export default function WishListPage() {
   }, [wishlist]);
 
   const setProductsToRender = async () => {
-    const result = [];
-    for (const id of wishlist) {
-      const productData = await getProductInfo(id);
-      result.push(productData);
-    }
+    const promises = wishlist.map((id) => getProductInfo(id));
+    const promisesResult = await Promise.all(promises);
+    const result = promisesResult.map((e, i) => ({
+      quantity: wishlist[i].quantity,
+      ...e,
+    }));
     setWishlistToRender(result);
   };
 
