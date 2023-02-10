@@ -64,7 +64,7 @@ export default function ProductsPage() {
         </div>
 
         <div className={s.checkbox} onClick={checkbox}>
-          <Checkbox />
+          <Checkbox text="Discounted items" />
         </div>
 
         <div>
