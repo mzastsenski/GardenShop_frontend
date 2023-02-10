@@ -22,16 +22,15 @@ $base-color: #28a22a;
       justify-content: space-between;
       padding: 20px 0 28px;
       border-bottom: 2px solid #a7a7a7;
+      h2 {
+        font-family: "Monserat-SemiBold";
+      }
       a {
         display: flex;
         align-items: center;
         font-family: "Monserat-Medium";
         font-size: 19px;
       }
-    }
-    h2 {
-      font-family: "Monserat-SemiBold";
-      margin-top: 20px;
     }
   }
   .clear_cart_button {

@@ -28,12 +28,13 @@ export default function CartPage() {
   }, [cart]);
 
   const setCartProducts = async () => {
-    const result = [];
-    for (const { id, quantity } of cart) {
-      const productData = await getProductInfo(id);
-      result.push({ quantity, ...productData });
-    }
-    setCartToRender(result);
+    const promises = cart.map(({ id }) => getProductInfo(id));
+    const promisesResult = await Promise.all(promises);
+    const cartProducts = promisesResult.map((e, i) => ({
+      quantity: cart[i].quantity,
+      ...e,
+    }));
+    setCartToRender(cartProducts);
   };
 
   const clear = () => dispatch(clearCart());
@@ -50,7 +51,7 @@ export default function CartPage() {
     reset();
     dispatch(clearCart());
     buyProducts({ cart: cartToRender, user });
-    navigate("/orders")
+    navigate("/orders");
   };
 
   const phoneRegister = register("phone", {
@@ -63,9 +64,8 @@ export default function CartPage() {
   return (
     <div className={s.cart_page}>
       <div className={s.cart}>
-        <h2>Shopping cart</h2>
         <div className={s.header}>
-          <Link to={"/"}>Home / Cart</Link>
+          <h2>Shopping cart</h2>
           <Link to={"/categories"}>
             Back to the Store <MdNavigateNext color="#A7A7A7" size={25} />
           </Link>
