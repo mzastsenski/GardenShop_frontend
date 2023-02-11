@@ -49,6 +49,24 @@ export default function ProductsPage() {
 
   const checkbox = (e) => setChecked(e.target.checked);
 
+  const [slice, setSlice] = useState(16);
+
+  const handleScroll = () => {
+    const bottom =
+      Math.ceil(window.innerHeight + window.scrollY) >=
+      document.documentElement.scrollHeight - 120;
+    if (bottom) {
+      setSlice((prev) => prev + 4);
+    }
+  };
+  
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className={s.products_page}>
       <h2>{categoryName}</h2>
@@ -84,6 +102,7 @@ export default function ProductsPage() {
             if (checked) return e.discont_price !== e.price && !e.hide;
             else return !e.hide;
           })
+          .slice(0, slice)
           .map((e) => (
             <ProductCard key={e.id} {...e} />
           ))}
