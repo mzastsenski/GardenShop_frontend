@@ -56,7 +56,7 @@ export default function CartPage() {
 
   const phoneRegister = register("phone", {
     pattern: {
-      value: /^([+](\d{1,3})\s?)?((\(\d{3,5}\)|\d{3,5})(\s)?)\d{3,8}$/,
+      value: /^(\+\d{1,3}\s?)?((\(\d{3,5}\)|\d{3,5})(\s)?)\d{3,8}$/,
       message: "*Enter valid phone number",
     },
   });

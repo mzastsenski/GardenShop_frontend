@@ -10,18 +10,18 @@ export default function Categories() {
   } = useForm();
 
   const submit = (data) => {
-    console.log(data.phone)
-    alert(data.phone)
+    console.log(data.phone);
+    alert(data.phone);
     reset();
   };
 
   const phoneRegister = register("phone", {
     pattern: {
-      value: /^([+](\d{1,3})\s?)?((\(\d{3,5}\)|\d{3,5})(\s)?)\d{3,8}$/,
+      value: /^(\+\d{1,3}\s?)?((\(\d{3,5}\)|\d{3,5})(\s)?)\d{3,8}$/,
       message: "*Enter valid phone number",
     },
   });
-  
+
   return (
     <section id="promotion" className={s.promotion_first_order}>
       <img src="/images/gnom.png" alt="" />
