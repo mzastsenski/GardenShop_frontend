@@ -49,6 +49,8 @@ export default function ProductsPage() {
 
   const checkbox = (e) => setChecked(e.target.checked);
 
+
+  /////  Infinite scroll  /////
   const [slice, setSlice] = useState(16);
 
   const handleScroll = () => {

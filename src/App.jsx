@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Layout from "./components/Layout/Layout";
 import MainPage from "./pages/MainPage/MainPage";
 import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
@@ -14,15 +15,7 @@ import OrderPage from "./pages/OrderPage/OrderPage";
 import EditProductsPage from "./pages/EditProductsPages/EditProductsPage";
 import EditProductPage from "./pages/EditProductsPages/EditProductPage";
 import NewProductPage from "./pages/EditProductsPages/NewProductPage";
-import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "./requests/categories";
-import { getProducts } from "./requests/products";
-import { setUser } from "./store/slices/userSlice";
-import { setCart } from "./store/slices/cartSlice";
-import { setWishlist } from "./store/slices/wishlistSlice";
-import { checkUser } from "./requests/auth";
-import { getCart, saveCart } from "./requests/cart";
-import { getWishlist, saveWishlist } from "./requests/wishlist";
+import { getData, getUserData, saveUserData } from "./helpers";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -31,36 +24,15 @@ export default function App() {
   const { wishlist } = useSelector((state) => state.wishlist);
 
   useEffect(() => {
-    dispatch(getCategories());
-    dispatch(getProducts());
-    const userLocal = localStorage.getItem("user");
-    if (userLocal) {
-      dispatch(checkUser(userLocal));
-      dispatch(setUser(userLocal));
-    }
+    getData(dispatch);
   }, [dispatch]);
 
   useEffect(() => {
-    if (user) {
-      dispatch(getCart({ user }));
-      dispatch(getWishlist({ user }));
-    } else {
-      const cartLocal = JSON.parse(localStorage.getItem("cart"));
-      if (cartLocal && cartLocal.length) dispatch(setCart(cartLocal));
-      const wishlistLocal = JSON.parse(localStorage.getItem("wishlist"));
-      if (wishlistLocal && wishlistLocal.length)
-        dispatch(setWishlist(wishlistLocal));
-    }
+    getUserData(user, dispatch);
   }, [user, dispatch]);
 
   useEffect(() => {
-    if (user) {
-      saveCart({ user, cart });
-      saveWishlist({ user, wishlist });
-    } else {
-      localStorage.setItem("cart", JSON.stringify(cart));
-      localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    }
+    saveUserData(user, cart, wishlist);
   }, [user, cart, wishlist]);
 
   return (

@@ -16,7 +16,7 @@ export default function Categories() {
   }, [products, promotions.length]);
 
   return (
-    <section className={s.promotions}>
+    <section id="promotions" className={s.promotions}>
       <h1>Promotions</h1>
       {promotions.length > 0 && (
         <div className={s.promotions_container}>

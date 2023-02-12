@@ -5,8 +5,6 @@ import cart from "./slices/cartSlice";
 import wishlist from "./slices/wishlistSlice";
 import orders from "./slices/ordersSlice";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: { data, user, cart, wishlist, orders },
 });
-
-export { store };

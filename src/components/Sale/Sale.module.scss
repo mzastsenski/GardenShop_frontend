@@ -26,14 +26,13 @@ $backgorund-color: rgb(147, 234, 234);
     letter-spacing: 2px;
     padding-bottom: 12px;
   }
-  button {
+  a button {
     font-family: "Monserat-Semibold";
     margin: 16px 16px 16px 0;
     background-color: white;
     border: 2px solid white;
     border-radius: 12.5px;
     color: black;
-    // width: 235px;
     padding: 0 50px;
     height: 81px;
     font-size: 25px;
@@ -41,7 +40,7 @@ $backgorund-color: rgb(147, 234, 234);
     letter-spacing: 1px;
     cursor: pointer;
   }
-  button:nth-child(2) {
+  a:nth-child(2) button {
     background-color: $backgorund-color;
     color: white;
   }

@@ -46,11 +46,11 @@ export const dataSlice = createSlice({
     },
   },
   extraReducers: {
-    [getProducts.fulfilled]: (state, action) => {
-      state.products = action.payload;
-    },
     [getCategories.fulfilled]: (state, action) => {
       state.categories = action.payload;
+    },
+    [getProducts.fulfilled]: (state, action) => {
+      state.products = action.payload;
     },
     [getCategoryProducts.fulfilled]: (state, action) => {
       state.renderProducts = action.payload;

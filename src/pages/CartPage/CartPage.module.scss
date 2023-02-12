@@ -20,7 +20,7 @@ $base-color: #28a22a;
     .header {
       display: flex;
       justify-content: space-between;
-      padding: 20px 0 28px;
+      padding: 21px 0;
       border-bottom: 2px solid #a7a7a7;
       h2 {
         font-family: "Monserat-SemiBold";
@@ -98,5 +98,11 @@ $base-color: #28a22a;
         margin: 16px 0;
       }
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .cart_page {
+    flex-direction: column;
   }
 }

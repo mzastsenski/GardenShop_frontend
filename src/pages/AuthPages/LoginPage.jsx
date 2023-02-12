@@ -29,7 +29,7 @@ export default function LoginPage() {
     const user = e.target.user.value;
     const pass = e.target.password.value;
     user && pass
-      ? dispatch(login_req({ user, pass, cart, wishlist }, dispatch))
+      ? dispatch(login_req({ user, pass, cart, wishlist }))
       : alert("Enter your data");
   };
 
