@@ -4,12 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getCategoryProducts } from "../../requests/categories";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import {
-  setRenderProducts,
-  searchPrice,
-  sortProducts,
-} from "../../store/slices/dataSlice";
+import { setRenderProducts } from "../../store/slices/dataSlice";
 import Checkbox from "../../components/Checkbox/Checkbox";
+import SortProducts from "../../components/SortProducts/SortProducts";
+import SearchForm from "../../components/SearchForm/SearchForm";
 
 export default function ProductsPage() {
   const dispatch = useDispatch();
@@ -19,8 +17,8 @@ export default function ProductsPage() {
   );
   const [categoryName, setCategoryName] = useState("");
   const [checked, setChecked] = useState(false);
-
   const testID = !isNaN(+categoryID) ? true : false;
+  const checkbox = (e) => setChecked(e.target.checked);
 
   useEffect(() => {
     testID
@@ -37,19 +35,6 @@ export default function ProductsPage() {
     }
   }, [categories, categoryID, testID]);
 
-  const search = (e) => {
-    e.preventDefault();
-    const { min, max } = e.target;
-    const min_value = min.value || 0;
-    const max_value = max.value || Infinity; // or Number.MAX_VALUE;
-    dispatch(searchPrice({ min_value, max_value }));
-  };
-
-  const sort_products = (e) => dispatch(sortProducts(e.target.value));
-
-  const checkbox = (e) => setChecked(e.target.checked);
-
-
   /////  Infinite scroll  /////
   const [slice, setSlice] = useState(16);
 
@@ -57,11 +42,9 @@ export default function ProductsPage() {
     const bottom =
       Math.ceil(window.innerHeight + window.scrollY) >=
       document.documentElement.scrollHeight - 120;
-    if (bottom) {
-      setSlice((prev) => prev + 4);
-    }
+    if (bottom) setSlice((prev) => prev + 4);
   };
-  
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
@@ -74,28 +57,11 @@ export default function ProductsPage() {
       <h2>{categoryName}</h2>
 
       <div className={s.actions}>
-        <div>
-          <span>Price: </span>
-          <form className={s.search_form} onSubmit={search}>
-            <input type="text" placeholder="from" name="min" />
-            <input type="text" placeholder="to" name="max" />
-            <button>Search</button>
-          </form>
-        </div>
-
-        <div className={s.checkbox} onClick={checkbox}>
+        <SearchForm />
+        <div onClick={checkbox}>
           <Checkbox text="Discounted items" />
         </div>
-
-        <div>
-          <span>Sorted :</span>
-          <select className={s.sort_select} onInput={sort_products}>
-            <option value="default">by default</option>
-            <option value="title">title</option>
-            <option value="price">price</option>
-            <option value="descending">price descending</option>
-          </select>
-        </div>
+        <SortProducts />
       </div>
 
       <div className={s.products_container}>

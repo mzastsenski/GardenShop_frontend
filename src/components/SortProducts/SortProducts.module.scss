@@ -1,0 +1,17 @@
+.sort_select {
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 10px;
+  width: 112px;
+  margin-right: 10px;
+}
+
+@media (max-width: 480px) {
+  .sort_select {
+    border-radius: 16px;
+    margin: 10px 0;
+    padding: 0;
+    width: 85px;
+    height: 32px;
+  }
+}

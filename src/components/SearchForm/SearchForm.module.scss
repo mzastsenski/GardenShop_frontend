@@ -1,0 +1,42 @@
+$base-color: #28a22a;
+
+.search_form {
+  display: inline;
+  input {
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 10px;
+    width: 112px;
+    margin-right: 10px;
+  }
+
+  button {
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 10px;
+    width: 100px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  button:hover {
+    color: white;
+    background-color: $base-color;
+    border: 1px solid $base-color;
+  }
+}
+
+@media (max-width: 480px) {
+  .search_form {
+    display: flex;
+    border-radius: 16px;
+    margin: 10px 0;
+    padding: 0;
+    width: 185px;
+    height: 36px;
+    button {
+      background-color: $base-color;
+      color: white;
+    }
+  }
+}

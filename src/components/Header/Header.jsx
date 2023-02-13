@@ -9,7 +9,10 @@ import { useSelector } from "react-redux";
 export default function Nav() {
   const user = useSelector((state) => state.user.user);
   const cart = useSelector((state) => state.cart.cart);
-  const cartCount = cart.reduce((prev, { quantity }) => prev + quantity, 0);
+  const cartCount =
+    cart && cart.length
+      ? cart.reduce((prev, { quantity }) => prev + quantity, 0)
+      : 0;
   const wishlist = useSelector((state) => state.wishlist.wishlist);
 
   return (
