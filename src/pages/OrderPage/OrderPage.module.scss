@@ -34,3 +34,16 @@ $base-color: #28a22a;
     padding: 8px 18px;
   }
 }
+
+@media (max-width: 480px) {
+  .order_page {
+    .order_container div p {
+      font-size: 15px;
+      width: 60px;
+    }
+    h2 {
+      font-size: 20px;
+      margin: 32px 0px;
+    }
+  }
+}

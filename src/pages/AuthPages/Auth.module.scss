@@ -3,7 +3,7 @@ $hover-color: #30b532;
 
 .modal {
   position: fixed;
-  pointer-events: none; 
+  pointer-events: none;
   z-index: 5;
   top: 0;
   left: 0;
@@ -17,7 +17,7 @@ $hover-color: #30b532;
   transition: 0.2s;
 }
 .modal_content {
-  pointer-events: all; 
+  pointer-events: all;
   margin-top: -70px;
   background-color: white;
   border-radius: 20px;
@@ -49,8 +49,8 @@ $hover-color: #30b532;
     letter-spacing: 1.3px;
     padding-bottom: 20px;
     span {
-    font-size: 26px;
-    font-weight: 600;
+      font-size: 26px;
+      font-weight: 600;
     }
   }
 }
@@ -107,16 +107,32 @@ p.switch {
   }
 }
 @media (max-width: 768px) {
+  .modal_content {
+    margin-top: 50px;
+    min-width: 0px;
+    min-height: 380px;
+  }
   .login,
   .signup {
-    .field {
-      display: flex;
-      width: 90%;
-      input {
-        font-size: 18px;
-        width: 100%;
-        height: 34px;
-      }
+    width: 350px;
+  }
+  .field {
+    display: flex;
+    width: 85%;
+    input {
+      font-size: 17px;
+      width: 100%;
+      height: 34px;
     }
+  }
+  .login_buttons {
+    button {
+      margin: 12px 10px;
+      font-size: 17px;
+      letter-spacing: 2.8px;
+    }
+  }
+  p.switch {
+    font-size: 18px;
   }
 }

@@ -105,8 +105,51 @@ $base-color: #28a22a;
   .product_descr {
     flex-direction: column;
     img {
-      width: 250px;
-      height: 250px;
+      width: 350px;
+      height: 300px;
+    }
+    .product_info {
+      padding-top: 10px;
+      margin-left: 0px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .price_info {
+      width: 70%;
+      justify-content: space-between;
+      span:nth-child(1) {
+        font-size: 40px;
+      }
+      span:nth-child(2) {
+        font-size: 22px;
+      }
+      span:nth-child(3) {
+        font-size: 28px;
+      }
+    }
+    .add_button {
+      border: 2px solid $base-color;
+      color: white;
+      background-color: $base-color;
+      border-radius: 10px;
+      font-size: 22px;
+      width: 170px;
+      height: 58px;
+      margin: 24px 0 40px;
+    }
+    .description {
+      padding-top: 20px;
+      letter-spacing: 1px;
+      font-size: 17px;
+      background-size: 12px 2px;
+      h3 {
+        font-size: 20px;
+        padding: 12px 0;
+      }
+      p {
+        font-family: "Monserat";
+      }
     }
   }
 }

@@ -68,3 +68,20 @@
     }
   }
 }
+
+@media (max-width: 480px) {
+  .wishlist_card {
+    margin-top: 0;
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .price_info {
+      width: 240px;
+    }
+    img {
+      width: 240px;
+    }
+  }
+}

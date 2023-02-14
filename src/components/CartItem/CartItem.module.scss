@@ -71,3 +71,42 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 480px) {
+  .cart_card {
+    font-size: 16px;
+    padding: 20px 0;
+    img {
+      width: 65px;
+    }
+    .info {
+      height: 120px;
+      padding: 20px 10px 20px 29px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .quantity_buttons {
+      width: 80px;
+      height: 28px;
+      padding: 0 10px;
+      border: 1px solid black;
+      font-size: 13px;
+    }
+    .price {
+      display: none;
+    }
+    .discont_price {
+      margin-top: 12px;
+      font-size: 18px;
+    }
+    .wishlist_icon {
+      top: 30px;
+      right: 33px;
+    }
+    .delete_icon {
+      top: 30px;
+      right: 0px;
+    }
+  }
+}

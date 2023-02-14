@@ -37,6 +37,12 @@
 
 @media (max-width: 480px) {
   .footer {
-    font-size: 17px;
+    font-size: 14px;
+    h1, h2 {
+      font-size: 18px;
+    }
+    .icons a p {
+      font-size: 9px;
+    }
   }
 }

@@ -29,12 +29,15 @@ $base-color: #28a22a;
 @media (max-width: 480px) {
   .search_form {
     display: flex;
-    border-radius: 16px;
     margin: 10px 0;
-    padding: 0;
-    width: 185px;
-    height: 36px;
+    width: 285px;
+    input {
+      border-radius: 16px;
+      padding: 10px;
+    }
     button {
+      border-radius: 16px;
+      border: 1px solid $base-color;
       background-color: $base-color;
       color: white;
     }

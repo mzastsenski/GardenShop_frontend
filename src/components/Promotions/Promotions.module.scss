@@ -9,6 +9,9 @@
 }
 
 @media (max-width: 480px) {
+  .promotions h1 {
+    padding-bottom: 16px;
+  }
   .promotions_container {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;

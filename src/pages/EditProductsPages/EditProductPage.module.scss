@@ -47,3 +47,20 @@ $base-color: #28a22a;
     align-self: right;
   }
 }
+
+@media (max-width: 480px) {
+  .edit_product {
+    label {
+      margin: 7px;
+      display: block;
+      p {
+        font-size: 17px;
+        margin-bottom: 10px;
+      }
+      input,
+      textarea {
+        font-size: 16px;
+      }
+    }
+  }
+}

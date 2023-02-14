@@ -53,14 +53,25 @@ $backgorund-color: rgb(147, 234, 234);
 
 @media (max-width: 480px) {
   .sale {
+    display: none;
     padding: 12px;
     height: 300px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+    a button {
+      padding: 0 5px;
+      height: 41px;
+      font-size: 16px;
+    }
     h1 {
-      font-size: 36px;
+      font-size: 22px;
       letter-spacing: 2px;
     }
     h2 {
-      font-size: 22px;
+      font-size: 18px;
     }
     img {
       position: absolute;

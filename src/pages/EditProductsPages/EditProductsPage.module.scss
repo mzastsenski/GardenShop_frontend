@@ -34,3 +34,31 @@ $base-color: #28a22a;
     padding: 8px 18px;
   }
 }
+
+@media (max-width: 480px) {
+  .edit_page {
+    width: 100%;
+    h2 {
+      font-size: 24px;
+    }
+    .container {
+      margin-top: 28px;
+      div {
+        font-size: 14px;
+        gap: 0px;
+        padding: 10px 0;
+        margin: 0;
+        p {
+          width: 70px;
+        }
+        p:first-child {
+          width: 40px;
+        }
+      }
+      button {
+        font-size: 12px;
+        padding: 7px 16px;
+      }
+    }
+  }
+}

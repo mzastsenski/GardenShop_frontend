@@ -8,6 +8,9 @@
 
 @media (max-width: 480px) {
   .categories_container {
-    grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 }

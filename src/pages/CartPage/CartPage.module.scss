@@ -104,5 +104,53 @@ $base-color: #28a22a;
 @media (max-width: 480px) {
   .cart_page {
     flex-direction: column;
+    .cart {
+      width: 100%;
+      .header {
+        h2 {
+          font-size: 18.5px;
+          letter-spacing: 1px;
+        }
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+    .order_details {
+      margin-top: 30px;
+      max-width: 100%;
+      height: 325px;
+      form {
+        margin-top: 0;
+        input {
+          border-radius: 17px;
+          width: 100%;
+          height: 46px;
+          padding: 16px;
+          font-size: 16px;
+        }
+        .order_button {
+          border-radius: 17px;
+          width: 100%;
+          height: 53px;
+          color: white;
+          background-color: $base-color;
+          font-size: 18px;
+          margin: 0;
+        }
+      }
+      h2 {
+        font-size: 22px;
+        padding: 10px 0;
+      }
+      .total {
+        margin: 22px 0;
+        font-size: 20px;
+        span:nth-child(2) {
+          font-weight: 600;
+          font-size: 20px;
+        }
+      }
+    }
   }
 }
