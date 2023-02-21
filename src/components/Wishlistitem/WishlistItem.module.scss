@@ -14,6 +14,10 @@
     opacity: 1;
     transition: opacity 0.2s;
   }
+  &:hover img {
+    opacity: 0.75;
+  }
+  
   .add_button {
     opacity: 0;
     position: absolute;

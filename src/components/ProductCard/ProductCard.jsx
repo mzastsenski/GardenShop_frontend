@@ -40,6 +40,8 @@ export default function ProductCard({
   const className =
     Discount > 0 ? s.price_info : [s.price_info, s.price_info2].join(" ");
 
+  const size = 65;
+
   return (
     <div className={s.product_card}>
       <button className={s.add_button} onClick={add}>
@@ -47,13 +49,13 @@ export default function ProductCard({
       </button>
       {!inWishlist ? (
         <WishlistIcon
-          size={40}
+          size={size}
           onClick={add_to_wishlist}
           className={s.wishlist_icon}
         />
       ) : (
         <WishlistIcon2
-          size={40}
+          size={size}
           onClick={add_to_wishlist}
           className={s.wishlist_icon}
         />
