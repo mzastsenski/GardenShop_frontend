@@ -68,6 +68,25 @@
   }
 }
 
+@media (max-width: 1180px) {
+  .product_card {
+    width: 210px;
+    img {
+      width: 210px;
+      height: 205px;
+    }
+    .wishlist_icon {
+      top: 0;
+      left: 74%;
+      width: 43px;
+    }
+    .add_button {
+      top: 165px;
+      font-size: 16px;
+    }
+  }
+}
+
 @media (max-width: 480px) {
   .product_card {
     width: 160px;

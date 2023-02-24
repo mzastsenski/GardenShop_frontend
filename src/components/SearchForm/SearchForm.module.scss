@@ -5,24 +5,26 @@ $base-color: #28a22a;
   input {
     border: 1px solid black;
     border-radius: 6px;
-    padding: 10px;
+    padding: 9px 12px;
     width: 112px;
+    height: 36px;
     margin-right: 10px;
   }
 
   button {
     border: 1px solid black;
     border-radius: 7px;
-    padding: 10px;
     width: 100px;
-    background-color: transparent;
+    height: 36px;
+    color: white;
+    font-size: 15px;
+    background-color: $base-color;
+    border: 1px solid $base-color;
     cursor: pointer;
   }
 
   button:hover {
-    color: white;
-    background-color: $base-color;
-    border: 1px solid $base-color;
+    background-color: #10a113e2;
   }
 }
 

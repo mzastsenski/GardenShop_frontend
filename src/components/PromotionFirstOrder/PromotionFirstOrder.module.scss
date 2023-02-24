@@ -55,6 +55,34 @@ $border-radius: 25px;
     }
   }
 }
+@media (max-width: 1180px) {
+  .promotion_first_order {
+    height: 376px;
+    img {
+      width: 250px;
+      height: 250px;
+    }
+    div {
+      h1 {
+        font-size: 60px;
+      }
+      h2 {
+        font-size: 32px;
+      }
+      input {
+        width: 343px;
+        height: 60px;
+        margin: 18px 0 22px;
+        padding-left: 24px;
+      }
+      button {
+        width: 343px;
+        height: 60px;
+        font-size: 24px;
+      }
+    }
+  }
+}
 
 @media (max-width: 480px) {
   .promotion_first_order {

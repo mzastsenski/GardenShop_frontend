@@ -8,7 +8,7 @@ export default function CategoriesContainer({ count = Number.MAX_VALUE }) {
   return (
     <div className={s.categories_container}>
       {categories
-        .filter((e, i) => i < count)
+        .filter((_, i) => i < count)
         .map((e) => (
           <CategoryCard key={e.id} {...e} />
         ))}

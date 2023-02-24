@@ -15,14 +15,32 @@
   }
 }
 
+@media (max-width: 1180px) {
+  .category_card {
+    width: 218px;
+    img {
+      width: 218px;
+      height: 220px;
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .category_card {
+    width: 188px;
+    img {
+      width: 188px;
+      height: 180px;
+    }
+  }
+}
+
 @media (max-width: 480px) {
   .category_card {
     width: 118px;
-
     img {
       width: 118px;
       height: 110px;
-      object-fit: cover;
     }
   }
 }

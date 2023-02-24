@@ -101,9 +101,11 @@ $base-color: #28a22a;
   }
 }
 
-@media (max-width: 480px) {
+
+@media (max-width: 1200px) {
   .cart_page {
     flex-direction: column;
+    align-items: center;
     .cart {
       width: 100%;
       .header {

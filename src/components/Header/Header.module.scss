@@ -70,6 +70,27 @@ $color: #279b29;
   }
 }
 
+@media (max-width: 830px) {
+  .navigation {
+    .nav_left {
+      img {
+        width: 52px;
+      }
+      button {
+        margin-left: 37px;
+        width: 109px;
+        height: 42px;
+        font-size: 15px;
+      }
+    }
+    .nav_right {
+      .hashlink {
+        display: none;
+      }
+    }
+  }
+}
+
 @media (max-width: 480px) {
   .navigation {
     .nav_left {
@@ -81,11 +102,6 @@ $color: #279b29;
       }
       img {
         width: 42px;
-      }
-    }
-    .nav_right {
-      .hashlink {
-        display: none;
       }
     }
   }

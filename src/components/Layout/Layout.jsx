@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import s from "./Layout.module.scss";
 
 export default function Layout() {
-  const style = { width: window.screen.width };
+  const style = { width: window.innerWidth };
 
   return (
     <div className={s.wrapper} style={style}>

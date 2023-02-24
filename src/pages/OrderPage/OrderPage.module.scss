@@ -35,6 +35,20 @@ $base-color: #28a22a;
   }
 }
 
+@media (max-width: 1024px) {
+  .order_page {
+    .order_container div p {
+      font-size: 17px;
+      width: 99px;
+    }
+    h2 {
+      font-size: 24px;
+      margin: 32px 0px;
+    }
+  }
+}
+
+
 @media (max-width: 480px) {
   .order_page {
     .order_container div p {

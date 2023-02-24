@@ -85,7 +85,7 @@ export default function EditProductPage() {
             </label>
             <button>Save</button>
           </form>
-          <Upload setSource={setImgName} id={id}></Upload>
+          <Upload setSource={setImgName}></Upload>
         </div>
       )}
     </>

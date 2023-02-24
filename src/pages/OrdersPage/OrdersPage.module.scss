@@ -28,6 +28,20 @@ $base-color: #28a22a;
   }
 }
 
+@media (max-width: 1024px) {
+  .orders_page {
+    .orders_container div {
+      p {
+        font-size: 17px;
+        width: 150px;
+      }
+      button {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
 @media (max-width: 480px) {
   .orders_page {
     .orders_container div {

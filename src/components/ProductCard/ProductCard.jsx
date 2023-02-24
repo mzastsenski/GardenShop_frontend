@@ -25,11 +25,13 @@ export default function ProductCard({
   const [inWishlist, setInWishList] = useState(false);
 
   useEffect(() => {
-    const finded = wishlist.find((e) => e === id);
-    finded ? setInWishList(true) : setInWishList(false);
+    if (wishlist && wishlist.length) {
+      const finded = wishlist.find((e) => e === id);
+      finded ? setInWishList(true) : setInWishList(false);
+    } else setInWishList(false);
   }, [wishlist, id]);
 
-  const add = () => {
+  const add_to_cart = () => {
     dispatch(addToCart(id));
   };
 
@@ -44,7 +46,7 @@ export default function ProductCard({
 
   return (
     <div className={s.product_card}>
-      <button className={s.add_button} onClick={add}>
+      <button className={s.add_button} onClick={add_to_cart}>
         Add to cart
       </button>
       {!inWishlist ? (
