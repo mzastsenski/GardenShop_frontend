@@ -67,9 +67,21 @@
   transform: rotate(45deg);
 }
 
+@media (max-width: 880px) {
+  .container {
+    font-size: 16px;
+    padding-left: 0px;
+    padding-top: 18px;
+    margin-bottom: 18px;
+  }
+  .checkmark {
+    top: 14px;
+  }
+}
+
 @media (max-width: 480px) {
   .container {
-    padding-left: 0;
     font-size: 16px;
+    padding-left: 0px;
   }
 }

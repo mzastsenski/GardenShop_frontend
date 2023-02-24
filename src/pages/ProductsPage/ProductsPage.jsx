@@ -58,10 +58,12 @@ export default function ProductsPage() {
 
       <div className={s.actions}>
         <SearchForm />
-        <div onClick={checkbox}>
-          <Checkbox text="Discounted items" />
+        <div>
+          <div onClick={checkbox}>
+            <Checkbox text="Discounted items" />
+          </div>
+          <SortProducts />
         </div>
-        <SortProducts />
       </div>
 
       <div className={s.products_container}>

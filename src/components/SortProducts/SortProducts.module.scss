@@ -1,3 +1,7 @@
+.sort_products {
+  padding-left: 40px;
+}
+
 .sort_select {
   border: 1px solid black;
   border-radius: 6px;
@@ -6,12 +10,23 @@
   margin-right: 10px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 880px) {
+  .sort_products {
+    margin: 15px 12px;
+    padding-left: 30px;
+  }
   .sort_select {
     border-radius: 16px;
-    margin: 10px 0;
+    margin: 14px 0 11px;
     padding: 0;
     width: 85px;
     height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sort_products {
+    margin: 0;
+    padding-left: 10px;
   }
 }

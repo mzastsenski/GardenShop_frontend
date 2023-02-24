@@ -1,5 +1,4 @@
 $base-color: #28a22a;
-
 .search_form {
   display: inline;
   input {
@@ -35,9 +34,10 @@ $base-color: #28a22a;
     width: 285px;
     input {
       border-radius: 16px;
-      padding: 10px;
+      width: 100px;
     }
     button {
+      padding: 0 12px;
       border-radius: 16px;
       border: 1px solid $base-color;
       background-color: $base-color;

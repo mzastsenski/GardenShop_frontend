@@ -51,7 +51,7 @@ $backgorund-color: rgb(147, 234, 234);
   }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1140px) {
   .sale {
     height: 550px;
     a:nth-child(1) {
@@ -71,9 +71,10 @@ $backgorund-color: rgb(147, 234, 234);
     }
     h2 {
       font-size: 32px;
+      margin-bottom: 8px;
     }
     img {
-      height: 95%;
+      height: 92%;
     }
   }
 }
@@ -102,6 +103,7 @@ $backgorund-color: rgb(147, 234, 234);
     h2 {
       font-size: 22px;
       letter-spacing: 1.1px;
+      margin-bottom: 0px;
     }
     img {
       height: 90%;
