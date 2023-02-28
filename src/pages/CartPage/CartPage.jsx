@@ -48,10 +48,14 @@ export default function CartPage() {
 
   const buy_products = (data) => {
     console.log(data.phone);
-    reset();
-    dispatch(clearCart());
-    buyProducts({ cart: cartToRender, user });
-    navigate("/orders");
+    if (user) {
+      reset();
+      dispatch(clearCart());
+      buyProducts({ cart: cartToRender, user });
+      navigate("/orders");
+    } else {
+      navigate("/login");
+    }
   };
 
   const phoneRegister = register("phone", {
@@ -81,23 +85,25 @@ export default function CartPage() {
           </button>
         )}
       </div>
-      <div className={s.order_details}>
-        <h2>Order details</h2>
-        <div className={s.total}>
-          <span>Total</span>
-          <span>{total}€</span>
+      {cart.length > 0 && (
+        <div className={s.order_details}>
+          <h2>Order details</h2>
+          <div className={s.total}>
+            <span>Total</span>
+            <span>{total}€</span>
+          </div>
+          <form onSubmit={handleSubmit(buy_products)}>
+            <input
+              type="text"
+              name="phone"
+              defaultValue={"+49"}
+              {...phoneRegister}
+            />
+            <button className={s.order_button}>Order</button>
+          </form>
+          <div>{errors.phone && <p>{errors.phone?.message}</p>}</div>
         </div>
-        <form onSubmit={handleSubmit(buy_products)}>
-          <input
-            type="text"
-            name="phone"
-            defaultValue={"+49"}
-            {...phoneRegister}
-          />
-          <button className={s.order_button}>Order</button>
-        </form>
-        <div>{errors.phone && <p>{errors.phone?.message}</p>}</div>
-      </div>
+      )}
     </div>
   );
 }

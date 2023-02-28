@@ -42,7 +42,7 @@ export default function ProductCard({
   const className =
     Discount > 0 ? s.price_info : [s.price_info, s.price_info2].join(" ");
 
-  const size = 65;
+  const size = 55;
 
   return (
     <div className={s.product_card}>
