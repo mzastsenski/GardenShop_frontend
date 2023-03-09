@@ -27,8 +27,8 @@ export default function WishlistCard({
       <Link to={`/product/${id}`}>
         <img src={image} alt="" />
         <div to={`/product/${id}`} className={s.price_info}>
-          <span>{price}€ </span>
           <span>{discont_price}€ </span>
+          <span>{price}€ </span>
           <span>-{Discount}%</span>
         </div>
         <p>{title}</p>{" "}
