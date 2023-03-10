@@ -2,9 +2,9 @@ import s from "./ProductsPage.module.scss";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { getProducts } from "../../requests/products";
 import { getCategoryProducts } from "../../requests/categories";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import { setRenderProducts } from "../../store/slices/dataSlice";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import SortProducts from "../../components/SortProducts/SortProducts";
 import SearchForm from "../../components/SearchForm/SearchForm";
@@ -12,9 +12,7 @@ import SearchForm from "../../components/SearchForm/SearchForm";
 export default function ProductsPage() {
   const dispatch = useDispatch();
   const { categoryID } = useParams();
-  const { categories, products, renderProducts } = useSelector(
-    (state) => state.data
-  );
+  const { categories, products } = useSelector((state) => state.data);
   const [categoryName, setCategoryName] = useState("");
   const [checked, setChecked] = useState(false);
   const testID = !isNaN(+categoryID) ? true : false;
@@ -23,8 +21,8 @@ export default function ProductsPage() {
   useEffect(() => {
     testID
       ? dispatch(getCategoryProducts(categoryID))
-      : dispatch(setRenderProducts(products));
-  }, [products, categoryID, testID, dispatch]);
+      : dispatch(getProducts());
+  }, [categoryID, testID, dispatch]);
 
   useEffect(() => {
     if (testID) {
@@ -67,7 +65,7 @@ export default function ProductsPage() {
       </div>
 
       <div className={s.products_container}>
-        {renderProducts
+        {products
           .filter((e) => {
             if (checked) return e.discont_price !== e.price && !e.hide;
             else return !e.hide;
