@@ -4,16 +4,18 @@ import { BsHandbag as CartIcon } from "react-icons/bs";
 import { AiOutlineHeart as WishlistIcon } from "react-icons/ai";
 import { SlUser as UserIcon } from "react-icons/sl";
 import { HashLink } from "react-router-hash-link";
-import { useSelector } from "react-redux";
+import { useStore } from "../../store";
 
 export default function Nav() {
-  const user = useSelector((state) => state.user.user);
-  const cart = useSelector((state) => state.cart.cart);
+  const {
+    user: { user },
+    cart: { cart },
+    wishlist: { wishlist },
+  } = useStore();
   const cartCount =
     cart && cart.length
       ? cart.reduce((prev, { quantity }) => prev + quantity, 0)
       : 0;
-  const wishlist = useSelector((state) => state.wishlist.wishlist);
 
   return (
     <header>

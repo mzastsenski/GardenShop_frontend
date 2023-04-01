@@ -1,8 +1,7 @@
 import s from "./WishlistItem.module.scss";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeFromWishlist } from "../../store/slices/wishlistSlice";
 import { addToCart } from "../../store/slices/cartSlice";
+import { useStore } from "../../store";
 
 export default function WishlistCard({
   id,
@@ -11,10 +10,12 @@ export default function WishlistCard({
   price,
   title,
 }) {
+  const {
+    wishlist: { removeFromWishlist },
+  } = useStore();
   const Discount = (100 - (discont_price / price) * 100).toFixed(0);
-  const dispatch = useDispatch();
-  const remove = () => dispatch(removeFromWishlist(id));
-  const add = () => dispatch(addToCart(id));
+  const remove = () => removeFromWishlist(id);
+  const add = () => addToCart(id);
 
   return (
     <div className={s.wishlist_card}>

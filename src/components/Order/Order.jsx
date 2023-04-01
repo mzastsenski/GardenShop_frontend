@@ -1,23 +1,25 @@
 import s from "./Order.module.scss";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { setOrder } from "../../store/slices/ordersSlice";
 import { deleteOrder } from "../../requests/orders";
-import { removeOrder } from "../../store/slices/ordersSlice";
+import { useStore } from "../../store";
 
 export default function Order({ id, user, products, date }) {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const admin = useSelector((state) => state.user.user);
+
+  const {
+    orders: { setOrder, removeOrder },
+  } = useStore();
+
+  const admin = useStore().user.user;
 
   const show = () => {
-    dispatch(setOrder(products));
+    setOrder(products);
     navigate("/order");
   };
   const delete_order = () => {
     if (window.confirm("remove?") === true) {
       deleteOrder(id);
-      dispatch(removeOrder(id));
+      removeOrder(id);
     }
   };
 

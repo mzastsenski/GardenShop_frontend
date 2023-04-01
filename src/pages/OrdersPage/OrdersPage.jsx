@@ -1,17 +1,18 @@
 import s from "./OrdersPage.module.scss";
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import Order from "../../components/Order/Order";
 import { getOrders } from "../../requests/orders";
+import { useStore } from "../../store";
 
 export default function OrdersPage() {
-  const dispatch = useDispatch();
-  const { orders } = useSelector((state) => state.orders);
-  const { user } = useSelector((state) => state.user);
+  const {
+    user: { user },
+    orders: { orders, setOrders },
+  } = useStore();
 
   useEffect(() => {
-    if (user) dispatch(getOrders({ user }));
-  }, [user, dispatch]);
+    if (user) getOrders({ user }, setOrders);
+  }, [user, setOrders]);
 
   return (
     <div className={s.orders_page}>

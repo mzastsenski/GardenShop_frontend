@@ -1,10 +1,14 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+export const getCategories = (setCategories) => {
+  fetch("/category/all")
+    .then((res) => res.json())
+    .then(setCategories);
+};
 
-export const getCategories = createAsyncThunk("data/getCategories", () =>
-  fetch("/category/all").then((res) => res.json())
-);
-
-export const getCategoryProducts = createAsyncThunk(
-  "data/getCategoryProducts",
-  (id) => fetch(`/category/${id}`).then((res) => res.json())
-);
+export const getCategoryProducts = (id, setProducts, setFirstRender) => {
+  fetch(`/category/${id}`)
+    .then((res) => res.json())
+    .then((res) => {
+      setProducts(res);
+      setFirstRender([...res]);
+    });
+};

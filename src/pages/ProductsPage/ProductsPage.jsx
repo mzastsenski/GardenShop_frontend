@@ -1,6 +1,5 @@
 import s from "./ProductsPage.module.scss";
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../../requests/products";
 import { getCategoryProducts } from "../../requests/categories";
@@ -8,11 +7,13 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import SortProducts from "../../components/SortProducts/SortProducts";
 import SearchForm from "../../components/SearchForm/SearchForm";
+import { useStore } from "../../store";
 
 export default function ProductsPage() {
-  const dispatch = useDispatch();
+  const {
+    data: { products, categories, setProducts, setFirstRender },
+  } = useStore();
   const { categoryID } = useParams();
-  const { categories, products } = useSelector((state) => state.data);
   const [categoryName, setCategoryName] = useState("");
   const [checked, setChecked] = useState(false);
   const testID = !isNaN(+categoryID) ? true : false;
@@ -20,9 +21,9 @@ export default function ProductsPage() {
 
   useEffect(() => {
     testID
-      ? dispatch(getCategoryProducts(categoryID))
-      : dispatch(getProducts());
-  }, [categoryID, testID, dispatch]);
+      ? getCategoryProducts(categoryID, setProducts, setFirstRender)
+      : getProducts(setProducts, setFirstRender);
+  }, [categoryID, testID, setProducts, setFirstRender]);
 
   useEffect(() => {
     if (testID) {

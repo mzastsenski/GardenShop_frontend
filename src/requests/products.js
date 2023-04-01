@@ -1,8 +1,11 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-
-export const getProducts = createAsyncThunk("data/getProducts", () =>
-  fetch("/products/all").then((res) => res.json())
-);
+export const getProducts = (setProducts, setFirstRender) => {
+  fetch("/products/all")
+    .then((res) => res.json())
+    .then((res) => {
+      setProducts(res);
+      setFirstRender([...res]);
+    });
+};
 
 export const getProduct = async (id, callback) => {
   const result = await fetch(`/products/${id}`).then((res) => res.json());

@@ -1,17 +1,15 @@
 import s from "./Auth.module.scss";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setUser } from "../../store/slices/userSlice";
 import { login_req, postLogout } from "../../requests/auth";
-import { setCart } from "../../store/slices/cartSlice";
-import { setWishlist } from "../../store/slices/wishlistSlice";
+import { useStore } from "../../store";
 
 export default function LoginPage() {
-  const { user } = useSelector((state) => state.user);
-  const { cart } = useSelector((state) => state.cart);
-  const { wishlist } = useSelector((state) => state.wishlist);
-  const dispatch = useDispatch();
+  const {
+    user: { user, setUser },
+    cart: { cart, setCart },
+    wishlist: { wishlist, setWishlist },
+  } = useStore();
 
   const [style, setStyle] = useState({
     opacity: 0.5,
@@ -29,14 +27,14 @@ export default function LoginPage() {
     const user = e.target.user.value;
     const pass = e.target.password.value;
     user && pass
-      ? dispatch(login_req({ user, pass, cart, wishlist }))
+      ? login_req({ user, pass, cart, wishlist }, setUser)
       : alert("Enter your data");
   };
 
   const logout = () => {
-    dispatch(setUser(""));
-    dispatch(setCart([]));
-    dispatch(setWishlist([]));
+    setUser("");
+    setCart([]);
+    setWishlist([]);
     localStorage.setItem("user", "");
     localStorage.setItem("cart", JSON.stringify([]));
     localStorage.setItem("wishlist", JSON.stringify([]));

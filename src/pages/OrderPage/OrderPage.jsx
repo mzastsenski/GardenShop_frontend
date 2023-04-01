@@ -1,10 +1,12 @@
 import s from "./OrderPage.module.scss";
-import { useSelector } from "react-redux";
 import OrderItem from "../../components/OrderItem/OrderItem";
 import { Link } from "react-router-dom";
+import { useStore } from "../../store";
 
 export default function OrdersPage() {
-  const { order } = useSelector((state) => state.orders);
+  const {
+    orders: { order },
+  } = useStore();
 
   const totalPrice = order.reduce(
     (total, { quantity, discont_price }) => total + discont_price * quantity,

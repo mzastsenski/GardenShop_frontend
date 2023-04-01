@@ -1,16 +1,11 @@
 import s from "./ProductCard.module.scss";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../../store/slices/cartSlice";
-import {
-  addToWishlist,
-  removeFromWishlist,
-} from "../../store/slices/wishlistSlice";
 import {
   AiOutlineHeart as WishlistIcon,
   AiTwotoneHeart as WishlistIcon2,
 } from "react-icons/ai";
+import { useStore } from "../../store";
 
 export default function ProductCard({
   id,
@@ -19,8 +14,11 @@ export default function ProductCard({
   price,
   discont_price,
 }) {
-  const dispatch = useDispatch();
-  const { wishlist } = useSelector((state) => state.wishlist);
+  const {
+    cart: { addToCart },
+    wishlist: { wishlist, addToWishlist, removeFromWishlist },
+  } = useStore();
+
   const Discount = (100 - (discont_price / price) * 100).toFixed(0);
   const [inWishlist, setInWishList] = useState(false);
 
@@ -31,12 +29,8 @@ export default function ProductCard({
     } else setInWishList(false);
   }, [wishlist, id]);
 
-  const add_to_cart = () => {
-    dispatch(addToCart(id));
-  };
-
-  const add_to_wishlist = () => {
-    inWishlist ? dispatch(removeFromWishlist(id)) : dispatch(addToWishlist(id));
+  const saveToWishlist = () => {
+    inWishlist ? removeFromWishlist(id) : addToWishlist(id);
   };
 
   const className =
@@ -46,19 +40,19 @@ export default function ProductCard({
 
   return (
     <div className={s.product_card}>
-      <button className={s.add_button} onClick={add_to_cart}>
+      <button className={s.add_button} onClick={() => addToCart(id)}>
         Add to cart
       </button>
       {!inWishlist ? (
         <WishlistIcon
           size={size}
-          onClick={add_to_wishlist}
+          onClick={saveToWishlist}
           className={s.wishlist_icon}
         />
       ) : (
         <WishlistIcon2
           size={size}
-          onClick={add_to_wishlist}
+          onClick={saveToWishlist}
           className={s.wishlist_icon}
         />
       )}

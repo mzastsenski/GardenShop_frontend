@@ -1,10 +1,13 @@
 import s from "./Promotions.module.scss";
 import ProductCard from "../ProductCard/ProductCard";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useStore } from "../../store";
 
 export default function Categories() {
-  const products = useSelector((state) => state.data.products);
+  const {
+    data: { products },
+  } = useStore();
+
   const [promotions, setPromotions] = useState([]);
   const [num, setNum] = useState(0);
 

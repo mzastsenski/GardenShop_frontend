@@ -1,17 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import s from "./EditProductItem.module.scss";
 import { deleteProduct } from "../../requests/edit_products";
-import { removeProduct } from "../../store/slices/dataSlice";
+import { useStore } from "../../store";
 
 export default function EditProductItem({ id, title, price, image }) {
+  const {
+    data: { removeProduct },
+  } = useStore();
+
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const edit = () => navigate(`/editproduct/${id}`);
   const delete_product = () => {
     if (window.confirm("remove?") === true) {
       deleteProduct(id);
-      dispatch(removeProduct(id));
+      removeProduct(id);
     }
   };
 

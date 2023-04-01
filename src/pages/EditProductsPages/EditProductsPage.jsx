@@ -1,18 +1,19 @@
 import s from "./EditProductsPage.module.scss";
-import { useDispatch, useSelector } from "react-redux";
 import EditProductItem from "../../components/EditProductItem/EditProductItem";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { getProducts } from "../../requests/products";
+import { useStore } from "../../store";
 
 export default function EditProductsPage() {
-  const { user } = useSelector((state) => state.user);
-  const { products } = useSelector((state) => state.data);
-  const dispatch = useDispatch();
+  const {
+    user: { user },
+    data: { products, setProducts, setFirstRender },
+  } = useStore();
 
   useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    getProducts(setProducts, setFirstRender);
+  }, [setProducts, setFirstRender]);
 
   const sortedProducts =
     products.length > 0 ? [...products].sort((a, b) => a.id - b.id) : [];

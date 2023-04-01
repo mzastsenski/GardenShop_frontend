@@ -1,13 +1,14 @@
 import s from "./ProductDescrPage.module.scss";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProduct } from "../../requests/products";
-import { addToCart } from "../../store/slices/cartSlice";
+import { useStore } from "../../store";
 
 export default function ProductDescrPage() {
+  const {
+    cart: { addToCart },
+  } = useStore();
   const { id } = useParams();
-  const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const { title, image, description, price, discont_price } = product;
   const Discount = (100 - (discont_price / price) * 100).toFixed(0);
@@ -16,7 +17,7 @@ export default function ProductDescrPage() {
     getProduct(id, setProduct);
   }, [id]);
 
-  const add = () => dispatch(addToCart(+id));
+  const add = () => addToCart(+id);
 
   const className =
     Discount > 0 ? s.price_info : [s.price_info, s.price_info2].join(" ");

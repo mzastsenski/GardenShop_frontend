@@ -1,19 +1,20 @@
 import s from "./CartPage.module.scss";
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
 import CartItem from "../../components/CartItem/CartItem";
 import { clearCart } from "../../store/slices/cartSlice";
 import { getProductInfo } from "../../requests/products";
 import { buyProducts } from "../../requests/cart";
 import { MdNavigateNext } from "react-icons/md";
+import { useStore } from "../../store";
 
 export default function CartPage() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.user);
-  const { cart } = useSelector((state) => state.cart);
+  const {
+    user: { user },
+    cart: { cart },
+  } = useStore();
   const [cartToRender, setCartToRender] = useState([]);
 
   const total = cartToRender
@@ -23,11 +24,7 @@ export default function CartPage() {
     )
     .toFixed(2);
 
-  useEffect(() => {
-    setCartProducts();
-  }, [cart]);
-
-  const setCartProducts = async () => {
+  const setCartProducts = useCallback(async () => {
     const promises = cart.map(({ id }) => getProductInfo(id));
     const promisesResult = await Promise.all(promises);
     const cartProducts = promisesResult.map((e, i) => ({
@@ -35,9 +32,11 @@ export default function CartPage() {
       ...e,
     }));
     setCartToRender(cartProducts);
-  };
+  }, [cart]);
 
-  const clear = () => dispatch(clearCart());
+  useEffect(() => {
+    setCartProducts();
+  }, [cart, setCartProducts]);
 
   const {
     register,
@@ -46,11 +45,11 @@ export default function CartPage() {
     reset,
   } = useForm();
 
-  const buy_products = (data) => {
+  const buyCartProducts = (data) => {
     console.log(data.phone);
     if (user) {
       reset();
-      dispatch(clearCart());
+      clearCart();
       buyProducts({ cart: cartToRender, user });
       navigate("/orders");
     } else {
@@ -80,7 +79,7 @@ export default function CartPage() {
           {!cart.length && <h2>No products in the cart</h2>}
         </div>
         {cart.length > 0 && (
-          <button className={s.clear_cart_button} onClick={clear}>
+          <button className={s.clear_cart_button} onClick={() => clearCart()}>
             Clear Cart
           </button>
         )}
@@ -92,7 +91,7 @@ export default function CartPage() {
             <span>Total</span>
             <span>{total}€</span>
           </div>
-          <form onSubmit={handleSubmit(buy_products)}>
+          <form onSubmit={handleSubmit(buyCartProducts)}>
             <input
               type="text"
               name="phone"

@@ -1,19 +1,17 @@
 import s from "./WishlistPage.module.scss";
-import { useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import WishlistCard from "../../components/Wishlistitem/WishlistItem";
 import { getProductInfo } from "../../requests/products";
+import { useStore } from "../../store";
 
 export default function WishListPage() {
-  const wishlist = useSelector((state) => state.wishlist.wishlist);
+  const {
+    wishlist: { wishlist },
+  } = useStore();
 
   const [toRender, setWishlistToRender] = useState([]);
 
-  useEffect(() => {
-    setProductsToRender();
-  }, [wishlist]);
-
-  const setProductsToRender = async () => {
+  const setProductsToRender = useCallback(async () => {
     const promises = wishlist.map((id) => getProductInfo(id));
     const promisesResult = await Promise.all(promises);
     const result = promisesResult.map((e, i) => ({
@@ -21,7 +19,11 @@ export default function WishListPage() {
       ...e,
     }));
     setWishlistToRender(result);
-  };
+  }, [wishlist]);
+
+  useEffect(() => {
+    setProductsToRender();
+  }, [wishlist, setProductsToRender]);
 
   return (
     <div className={s.wishlist_page}>

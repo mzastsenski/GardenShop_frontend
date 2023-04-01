@@ -1,24 +1,14 @@
 import s from "./CartItem.module.scss";
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  incrementQuantity,
-  decrementQuantity,
-  deleteProduct,
-} from "../../store/slices/cartSlice";
-import {
-  addToWishlist,
-  removeFromWishlist,
-} from "../../store/slices/wishlistSlice";
 import {
   AiOutlineHeart as WishlistIcon,
   AiTwotoneHeart as WishlistIcon2,
   AiOutlinePlus as PlusIcon,
   AiOutlineMinus as MinusIcon,
 } from "react-icons/ai";
-
 import { RxCross2 } from "react-icons/rx";
+import { useStore } from "../../store";
 
 export default function CartItem({
   id,
@@ -28,8 +18,10 @@ export default function CartItem({
   price,
   title,
 }) {
-  const dispatch = useDispatch();
-  const { wishlist } = useSelector((state) => state.wishlist);
+  const {
+    wishlist: { wishlist, addToWishlist, removeFromWishlist },
+    cart: { incrementQuantity, decrementQuantity, deleteProduct },
+  } = useStore();
   const [inWishlist, setInWishList] = useState(false);
 
   useEffect(() => {
@@ -37,11 +29,11 @@ export default function CartItem({
     finded ? setInWishList(true) : setInWishList(false);
   }, [wishlist, id]);
 
-  const remove = () => dispatch(deleteProduct(id));
-  const plus = () => dispatch(incrementQuantity(id));
-  const minus = () => dispatch(decrementQuantity(id));
+  const remove = () => deleteProduct(id);
+  const plus = () => incrementQuantity(id);
+  const minus = () => decrementQuantity(id);
   const add_to_wishlist = () => {
-    inWishlist ? dispatch(removeFromWishlist(id)) : dispatch(addToWishlist(id));
+    inWishlist ? removeFromWishlist(id) : addToWishlist(id);
   };
 
   return (

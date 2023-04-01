@@ -1,15 +1,17 @@
 import s from "./SearchForm.module.scss";
-import {  searchPrice } from "../../store/slices/dataSlice";
-import {   useDispatch } from "react-redux";
+import { useStore } from "../../store";
 
 export default function SearchForm() {
-  const dispatch = useDispatch();
+  const {
+    data: { searchPrice },
+  } = useStore();
+
   const search = (e) => {
     e.preventDefault();
     const { min, max } = e.target;
     const min_value = min.value || 0;
     const max_value = max.value || Infinity; // or Number.MAX_VALUE;
-    dispatch(searchPrice({ min_value, max_value }));
+    searchPrice({ min_value, max_value });
   };
   return (
     <div>

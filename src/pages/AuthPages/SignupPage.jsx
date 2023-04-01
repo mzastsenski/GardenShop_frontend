@@ -1,10 +1,8 @@
 import s from "./Auth.module.scss";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { signUp_req } from "../../requests/auth";
 
 export default function SignupPage() {
-  const dispatch = useDispatch();
   const submit = (e) => {
     e.preventDefault();
     const user = e.target.user.value;
@@ -16,7 +14,7 @@ export default function SignupPage() {
     else if (pass !== passConf) alert("Passwords not equal");
 
     if (user && pass && passConf && pass === passConf) {
-      dispatch(signUp_req({ user, pass }));
+      signUp_req({ user, pass });
     }
   };
 

@@ -1,9 +1,11 @@
 import s from "./CategoriesContainer.module.scss";
 import CategoryCard from "../CategoryCard/CategoryCard";
-import { useSelector } from "react-redux";
+import { useStore } from "../../store";
 
 export default function CategoriesContainer({ count = Number.MAX_VALUE }) {
-  const { categories } = useSelector((state) => state.data);
+  const {
+    data: { categories },
+  } = useStore();
 
   return (
     <div className={s.categories_container}>

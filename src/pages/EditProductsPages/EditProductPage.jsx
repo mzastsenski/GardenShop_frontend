@@ -1,13 +1,16 @@
 import s from "./EditProductPage.module.scss";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Upload from "../../components/Upload/Upload";
 import { editProduct } from "../../requests/edit_products";
+import { useStore } from "../../store";
 
 export default function EditProductPage() {
-  const { user } = useSelector((state) => state.user);
-  const { products } = useSelector((state) => state.data);
+  const {
+    user: { user },
+    data: { products },
+  } = useStore();
+
   const { id } = useParams();
   const [imgName, setImgName] = useState(null);
   const navigate = useNavigate();

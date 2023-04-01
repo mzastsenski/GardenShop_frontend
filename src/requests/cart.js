@@ -1,14 +1,14 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-
-export const getCart = createAsyncThunk("data/getCart", (data) =>
+export const getCart = (data, setCart) => {
   fetch(`/cart/get`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
     body: JSON.stringify(data),
-  }).then((res) => res.json())
-);
+  })
+    .then((res) => res.json())
+    .then(setCart);
+};
 
 export const saveCart = (data) =>
   fetch(`/cart/save`, {
