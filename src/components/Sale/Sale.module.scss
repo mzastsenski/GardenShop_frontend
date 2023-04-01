@@ -2,18 +2,28 @@
   font-family: "Monserat-SemiBold";
   src: url("../../assets/fonts/Montserrat-SemiBold.ttf");
 }
-$backgorund-color: rgb(147, 234, 234);
+$backgorund-color: #279b29;
 
 .sale {
   position: relative;
-  padding: 50px;
-  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   background-color: $backgorund-color;
   height: 600px;
   color: white;
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0 40px;
+  }
+  .img_container {
+    img {
+      height: 100%;
+    }
+  }
+
   h1 {
     font-family: "Monserat-Semibold";
     font-size: 80px;
@@ -29,10 +39,10 @@ $backgorund-color: rgb(147, 234, 234);
   a button {
     font-family: "Monserat-Semibold";
     margin: 16px 16px 16px 0;
-    background-color: white;
+    background-color: $backgorund-color;
+    color: white;
     border: 2px solid white;
     border-radius: 12.5px;
-    color: black;
     padding: 0 50px;
     height: 81px;
     font-size: 25px;
@@ -40,20 +50,21 @@ $backgorund-color: rgb(147, 234, 234);
     letter-spacing: 1px;
     cursor: pointer;
   }
-  a:nth-child(2) button {
-    background-color: $backgorund-color;
-    color: white;
-  }
-  img {
-    position: absolute;
-    right: 0;
-    height: 100%;
+  a:hover button {
+    background-color: white;
+    color: black;
   }
 }
 
-@media (max-width: 1140px) {
+@media (max-width: 1200px) {
   .sale {
     height: 550px;
+    .img_container {
+      img {
+        width: 550px;
+        object-fit: cover;
+      }
+    }
     a:nth-child(1) {
       display: none;
     }
@@ -61,8 +72,8 @@ $backgorund-color: rgb(147, 234, 234);
       padding: 0;
       font-size: 20px;
       letter-spacing: 0.8px;
-      height: 55px;
-      width: 190px;
+      height: 50px;
+      width: 170px;
       background-color: white;
       color: black;
     }
@@ -82,6 +93,12 @@ $backgorund-color: rgb(147, 234, 234);
 @media (max-width: 830px) {
   .sale {
     height: 450px;
+    .img_container {
+      img {
+        width: 450px;
+        object-fit: cover;
+      }
+    }
   }
 }
 
@@ -89,6 +106,14 @@ $backgorund-color: rgb(147, 234, 234);
   .sale {
     padding: 32px;
     height: 232px;
+    .left {
+      padding: 0 20px;
+    }
+    .img_container {
+      img {
+        width: 200px;
+      }
+    }
     a:nth-child(2) button {
       font-size: 15px;
       height: 41px;
@@ -104,9 +129,6 @@ $backgorund-color: rgb(147, 234, 234);
       font-size: 22px;
       letter-spacing: 1.1px;
       margin-bottom: 0px;
-    }
-    img {
-      height: 90%;
     }
   }
 }
