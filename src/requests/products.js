@@ -2,7 +2,6 @@ export const getProducts = (setProducts, setFirstRender) => {
   fetch("/products/all")
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
       setProducts(res);
       setFirstRender([...res]);
     });
