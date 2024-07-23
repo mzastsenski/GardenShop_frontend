@@ -24,12 +24,17 @@ export const deleteProduct = (id) => {
   });
 };
 export const sendFile = async (data, uploadProgress) => {
-  axios.request({
-    method: "POST",
-    url: "/editproducts/upload",
-    data,
-    onUploadProgress: uploadProgress,
-  });
+  axios
+    .request({
+      method: "POST",
+      url: "/editproducts/upload",
+      data,
+      onUploadProgress: uploadProgress,
+    })
+    .then((res) => {
+      if (res.data !== 200) alert("File upload error");
+      else alert("File uploaded successfully");
+    });
 };
 
 export const sendFile_v2 = async (data, progress) => {
