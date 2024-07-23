@@ -1,6 +1,5 @@
 import s from "./WishlistItem.module.scss";
 import { Link } from "react-router-dom";
-import { addToCart } from "../../store/slices/cartSlice";
 import { useStore } from "../../store";
 
 export default function WishlistCard({
@@ -12,6 +11,7 @@ export default function WishlistCard({
 }) {
   const {
     wishlist: { removeFromWishlist },
+   cart: { addToCart },
   } = useStore();
   const Discount = (100 - (discont_price / price) * 100).toFixed(0);
   const remove = () => removeFromWishlist(id);

@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CartItem from "../../components/CartItem/CartItem";
-import { clearCart } from "../../store/slices/cartSlice";
 import { getProductInfo } from "../../requests/products";
 import { buyProducts } from "../../requests/cart";
 import { MdNavigateNext } from "react-icons/md";
@@ -13,7 +12,7 @@ export default function CartPage() {
   const navigate = useNavigate();
   const {
     user: { user },
-    cart: { cart },
+    cart: { cart, clearCart },
   } = useStore();
   const [cartToRender, setCartToRender] = useState([]);
 

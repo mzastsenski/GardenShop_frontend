@@ -13,8 +13,8 @@ export const login_req = (data, setUser) => {
       if (res === 401) {
         alert("Login Fault");
       } else {
-        setUser(res);
-        localStorage.setItem("user", res);
+        setUser(data.user);
+        localStorage.setItem("user", data.user);
         localStorage.setItem("cart", JSON.stringify([]));
         localStorage.setItem("wishlist", JSON.stringify([]));
       }

@@ -32,7 +32,7 @@ export default function OrdersPage() {
           <OrderItem key={e.id} {...e} />
         ))}
       </div>
-      <h2>Total price: {totalPrice}€</h2>
+      <h2>Total price: {totalPrice.toFixed(2)}€</h2>
     </div>
   );
 }
