@@ -18,10 +18,10 @@ export const wishlistSlice = createSlice({
       state.wishlist = state.wishlist.filter((el) => el !== action.payload);
     },
   },
-  extraReducers: {
-    [getWishlist.fulfilled]: (state, action) => {
+  extraReducers: (builder) => {
+    builder.addCase(getWishlist.fulfilled, (state, action) => {
       state.wishlist = action.payload;
-    },
+    });
   },
 });
 

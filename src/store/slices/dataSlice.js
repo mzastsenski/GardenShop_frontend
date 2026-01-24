@@ -15,7 +15,7 @@ export const dataSlice = createSlice({
         state.products = state.firstRender;
       } else if (typeof state.products[0][action.payload] === "string") {
         state.products.sort((a, b) =>
-          a[action.payload].localeCompare(b[action.payload])
+          a[action.payload].localeCompare(b[action.payload]),
         );
       } else if (action.payload === "price") {
         state.products.sort((a, b) => a[action.payload] - b[action.payload]);
@@ -38,18 +38,19 @@ export const dataSlice = createSlice({
       state.products = state.products.filter((e) => e.id !== action.payload);
     },
   },
-  extraReducers: {
-    [getCategories.fulfilled]: (state, action) => {
-      state.categories = action.payload;
-    },
-    [getProducts.fulfilled]: (state, action) => {
-      state.products = action.payload;
-      state.firstRender = action.payload;
-    },
-    [getCategoryProducts.fulfilled]: (state, action) => {
-      state.products = action.payload;
-      state.firstRender = action.payload;
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getCategories.fulfilled, (state, action) => {
+        state.categories = action.payload;
+      })
+      .addCase(getProducts.fulfilled, (state, action) => {
+        state.products = action.payload;
+        state.firstRender = action.payload;
+      })
+      .addCase(getCategoryProducts.fulfilled, (state, action) => {
+        state.products = action.payload;
+        state.firstRender = action.payload;
+      });
   },
 });
 

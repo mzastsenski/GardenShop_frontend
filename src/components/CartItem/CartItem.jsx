@@ -13,7 +13,7 @@ import {
 } from "../../store/slices/wishlistSlice";
 import {
   AiOutlineHeart as WishlistIcon,
-  AiTwotoneHeart as WishlistIcon2,
+  AiFillHeart as WishlistIcon2,
   AiOutlinePlus as PlusIcon,
   AiOutlineMinus as MinusIcon,
 } from "react-icons/ai";

@@ -9,7 +9,7 @@ import {
 } from "../../store/slices/wishlistSlice";
 import {
   AiOutlineHeart as WishlistIcon,
-  AiTwotoneHeart as WishlistIcon2,
+  AiFillHeart as WishlistIcon2,
 } from "react-icons/ai";
 
 export default function ProductCard({
@@ -57,6 +57,7 @@ export default function ProductCard({
         />
       ) : (
         <WishlistIcon2
+          color="red"
           size={size}
           onClick={add_to_wishlist}
           className={s.wishlist_icon}

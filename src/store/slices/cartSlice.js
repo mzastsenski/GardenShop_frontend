@@ -38,10 +38,10 @@ export const cartSlice = createSlice({
       state.cart = [...state.cart];
     },
   },
-  extraReducers: {
-    [getCart.fulfilled]: (state, action) => {
+  extraReducers: (builder) => {
+    builder.addCase(getCart.fulfilled, (state, action) => {
       state.cart = action.payload;
-    },
+    });
   },
 });
 

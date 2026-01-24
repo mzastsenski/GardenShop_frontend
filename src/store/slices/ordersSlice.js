@@ -15,10 +15,10 @@ export const ordersSlice = createSlice({
       state.orders = state.orders.filter((e) => e.id !== action.payload);
     },
   },
-  extraReducers: {
-    [getOrders.fulfilled]: (state, action) => {
+  extraReducers: (builder) => {
+    builder.addCase(getOrders.fulfilled, (state, action) => {
       state.orders = action.payload;
-    },
+    });
   },
 });
 
