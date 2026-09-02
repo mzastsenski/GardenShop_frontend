@@ -10,10 +10,12 @@ node_modules
 
 # production
 build
+dist
 PromotionFirstOrder_WithoutUseForm
 
 # misc
 .DS_Store
+.gitignore
 .env.local
 .env.development.local
 .env.test.local
