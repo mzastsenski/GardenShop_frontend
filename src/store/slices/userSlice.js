@@ -19,8 +19,6 @@ export const userSlice = createSlice({
         } else {
           state.user = action.payload;
           localStorage.setItem("user", action.payload);
-          localStorage.setItem("cart", JSON.stringify([]));
-          localStorage.setItem("wishlist", JSON.stringify([]));
         }
       })
       .addCase(signUp_req.fulfilled, (state, action) => {

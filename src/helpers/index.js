@@ -33,8 +33,7 @@ export const saveUserData = (user, cart, wishlist) => {
   if (user) {
     saveCart({ user, cart });
     saveWishlist({ user, wishlist });
-  } else {
-    localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
   }
+  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
 };
